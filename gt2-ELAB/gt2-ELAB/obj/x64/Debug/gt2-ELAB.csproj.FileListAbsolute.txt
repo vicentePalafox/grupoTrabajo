@@ -1,0 +1,14 @@
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.AssemblyReference.cache
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.SuggestedBindingRedirects.cache
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmTipoUser.resources
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Properties.Resources.resources
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.GenerateResource.cache
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.CoreCompileInputs.cache
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\bin\x64\Debug\gt2-ELAB.exe.config
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\bin\x64\Debug\gt2-ELAB.exe
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\bin\x64\Debug\gt2-ELAB.pdb
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.exe
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.pdb
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmSelectSecuencia.resources
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmEjecucion.resources
+C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmSecuencias.resources
