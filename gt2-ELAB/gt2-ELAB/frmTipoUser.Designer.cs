@@ -66,16 +66,16 @@
             this.PanelTitulo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PanelTitulo.Location = new System.Drawing.Point(-1, -1);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(429, 39);
+            this.PanelTitulo.Size = new System.Drawing.Size(429, 31);
             this.PanelTitulo.TabIndex = 2;
             // 
             // btnCerrar
             // 
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(382, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(381, 0);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(47, 39);
+            this.btnCerrar.Size = new System.Drawing.Size(48, 31);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 

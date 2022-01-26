@@ -72,6 +72,30 @@
     <Compile Include="frmEjecucion.Designer.cs">
       <DependentUpon>frmEjecucion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGuardado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuardado.Designer.cs">
+      <DependentUpon>frmGuardado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevaEstacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaEstacion.Designer.cs">
+      <DependentUpon>frmNuevaEstacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevaPractica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaPractica.Designer.cs">
+      <DependentUpon>frmNuevaPractica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevaSecuencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaSecuencia.Designer.cs">
+      <DependentUpon>frmNuevaSecuencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSecuencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +118,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmEjecucion.resx">
       <DependentUpon>frmEjecucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuardado.resx">
+      <DependentUpon>frmGuardado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaEstacion.resx">
+      <DependentUpon>frmNuevaEstacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaPractica.resx">
+      <DependentUpon>frmNuevaPractica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaSecuencia.resx">
+      <DependentUpon>frmNuevaSecuencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSecuencias.resx">
       <DependentUpon>frmSecuencias.cs</DependentUpon>

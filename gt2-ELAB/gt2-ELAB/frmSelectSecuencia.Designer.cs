@@ -51,15 +51,15 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(456, 44);
+            this.panel1.Size = new System.Drawing.Size(456, 33);
             this.panel1.TabIndex = 1;
             // 
             // btnCerrar
             // 
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(402, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(413, 0);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(54, 44);
+            this.btnCerrar.Size = new System.Drawing.Size(43, 33);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
