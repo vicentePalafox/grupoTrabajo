@@ -1,4 +1,6 @@
-﻿using System;
+﻿using gt2_ELAB.Vista;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace gt2_ELAB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTipoUser());
+            Application.Run(new frmLogin());
         }
     }
 }
