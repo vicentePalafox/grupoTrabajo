@@ -16,5 +16,20 @@ namespace gt2_ELAB.Vista
         {
             InitializeComponent();
         }
+
+        private void btnNuevaP_Click(object sender, EventArgs e)
+        {
+            frmSelectSecuencia vistaNuevaPractica = new frmSelectSecuencia();
+            DialogResult dialogResult;
+            dialogResult = vistaNuevaPractica.ShowDialog();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e) => Close();
+
+        private void btnVisualizarT_Click(object sender, EventArgs e)
+        {
+            frmResultados vistaresulados = new frmResultados();
+            vistaresulados.Show();
+        }
     }
 }

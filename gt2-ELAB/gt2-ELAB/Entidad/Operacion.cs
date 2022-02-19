@@ -13,6 +13,6 @@ namespace gt2_ELAB.Entidad
         public int idSecuencia { get; set; }
         public int estacion { get; set; }
         public string descripcion { get; set; }
-        public string urlImagen { get; set; }//reconciderar subir imagen a BD
+        public byte[] urlImagen { get; set; }
     }
 }

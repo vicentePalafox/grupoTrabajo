@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace gt2_ELAB
 {
-    public partial class frmSecuencias : Form
+    public partial class frmResultados : Form
     {
-        public frmSecuencias()
+        public frmResultados()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

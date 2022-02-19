@@ -77,6 +77,9 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.28\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
@@ -124,12 +127,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidad\Analista.cs" />
+    <Compile Include="Entidad\Ejecucion.cs" />
     <Compile Include="Entidad\Estacion.cs" />
     <Compile Include="Entidad\Operacion.cs" />
     <Compile Include="Entidad\Practica.cs" />
     <Compile Include="Entidad\Resultado.cs" />
     <Compile Include="Entidad\Secuencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />
+    <Compile Include="Funciones\SQL_Analista.cs" />
+    <Compile Include="Funciones\SQL_Estacion.cs" />
+    <Compile Include="Vista\frmResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\frmResultados.Designer.cs">
+      <DependentUpon>frmResultados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\SQL_Operacion.cs" />
+    <Compile Include="Funciones\SQL_Practica.cs" />
+    <Compile Include="Funciones\SQL_Secuencia.cs" />
+    <Compile Include="Funciones\SQL_Usuario.cs" />
     <Compile Include="Vista\frmAnalisis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,36 +176,6 @@
     <Compile Include="Vista\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\frmNuevaEstacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\frmNuevaEstacion.Designer.cs">
-      <DependentUpon>frmNuevaEstacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\frmNuevaPractica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\frmNuevaPractica.Designer.cs">
-      <DependentUpon>frmNuevaPractica.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\frmNuevaSecuencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\frmNuevaSecuencia.Designer.cs">
-      <DependentUpon>frmNuevaSecuencia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\frmRegistroUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\frmRegistroUser.Designer.cs">
-      <DependentUpon>frmRegistroUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\frmSecuencias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\frmSecuencias.Designer.cs">
-      <DependentUpon>frmSecuencias.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vista\frmSelectSecuencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,20 +199,8 @@
     <EmbeddedResource Include="Vista\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\frmNuevaEstacion.resx">
-      <DependentUpon>frmNuevaEstacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\frmNuevaPractica.resx">
-      <DependentUpon>frmNuevaPractica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\frmNuevaSecuencia.resx">
-      <DependentUpon>frmNuevaSecuencia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\frmRegistroUser.resx">
-      <DependentUpon>frmRegistroUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\frmSecuencias.resx">
-      <DependentUpon>frmSecuencias.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\frmResultados.resx">
+      <DependentUpon>frmResultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\frmSelectSecuencia.resx">
       <DependentUpon>frmSelectSecuencia.cs</DependentUpon>
@@ -254,9 +228,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Funciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

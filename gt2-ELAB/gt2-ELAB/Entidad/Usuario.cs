@@ -8,6 +8,9 @@ namespace gt2_ELAB.Entidad
 {
     internal class Usuario
     {
+        public static string UsuarioName;
+        public static string UsuarioEscuela;
+
         public int id { get; set; }
         public string nombre { get; set; }
         public string usuarioName { get; set; }

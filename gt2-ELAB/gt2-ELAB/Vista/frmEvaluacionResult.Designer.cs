@@ -28,87 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEvaluacionResult));
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbxDestreza = new System.Windows.Forms.ComboBox();
+            this.cbxEsfuerzo = new System.Windows.Forms.ComboBox();
+            this.cbxCondiciones = new System.Windows.Forms.ComboBox();
+            this.cbxConcistencia = new System.Windows.Forms.ComboBox();
+            this.cbxToleranciaS = new System.Windows.Forms.ComboBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnIcono = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 45);
+            this.label1.Location = new System.Drawing.Point(23, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modificacion de Datos";
             // 
-            // comboBox1
+            // cbxDestreza
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(26, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 26);
-            this.comboBox1.TabIndex = 1;
+            this.cbxDestreza.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDestreza.FormattingEnabled = true;
+            this.cbxDestreza.Location = new System.Drawing.Point(26, 104);
+            this.cbxDestreza.Name = "cbxDestreza";
+            this.cbxDestreza.Size = new System.Drawing.Size(85, 26);
+            this.cbxDestreza.TabIndex = 1;
             // 
-            // comboBox2
+            // cbxEsfuerzo
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(139, 104);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(85, 26);
-            this.comboBox2.TabIndex = 2;
+            this.cbxEsfuerzo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEsfuerzo.FormattingEnabled = true;
+            this.cbxEsfuerzo.Location = new System.Drawing.Point(139, 104);
+            this.cbxEsfuerzo.Name = "cbxEsfuerzo";
+            this.cbxEsfuerzo.Size = new System.Drawing.Size(85, 26);
+            this.cbxEsfuerzo.TabIndex = 2;
             // 
-            // comboBox3
+            // cbxCondiciones
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(257, 104);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(85, 26);
-            this.comboBox3.TabIndex = 3;
+            this.cbxCondiciones.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCondiciones.FormattingEnabled = true;
+            this.cbxCondiciones.Location = new System.Drawing.Point(257, 104);
+            this.cbxCondiciones.Name = "cbxCondiciones";
+            this.cbxCondiciones.Size = new System.Drawing.Size(85, 26);
+            this.cbxCondiciones.TabIndex = 3;
             // 
-            // comboBox4
+            // cbxConcistencia
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(367, 104);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(85, 26);
-            this.comboBox4.TabIndex = 4;
+            this.cbxConcistencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxConcistencia.FormattingEnabled = true;
+            this.cbxConcistencia.Location = new System.Drawing.Point(367, 104);
+            this.cbxConcistencia.Name = "cbxConcistencia";
+            this.cbxConcistencia.Size = new System.Drawing.Size(85, 26);
+            this.cbxConcistencia.TabIndex = 4;
             // 
-            // comboBox5
+            // cbxToleranciaS
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(659, 104);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(85, 26);
-            this.comboBox5.TabIndex = 5;
+            this.cbxToleranciaS.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxToleranciaS.FormattingEnabled = true;
+            this.cbxToleranciaS.Location = new System.Drawing.Point(659, 104);
+            this.cbxToleranciaS.Name = "cbxToleranciaS";
+            this.cbxToleranciaS.Size = new System.Drawing.Size(85, 26);
+            this.cbxToleranciaS.TabIndex = 5;
             // 
-            // textBox1
+            // txtTotal
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(501, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 6;
+            this.txtTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(501, 104);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 26);
+            this.txtTotal.TabIndex = 6;
             // 
             // label2
             // 
@@ -170,72 +173,99 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Tolerancia Sulemento";
             // 
-            // button1
+            // btnIcono
             // 
-            this.button1.Location = new System.Drawing.Point(513, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Icono";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIcono.BackColor = System.Drawing.Color.White;
+            this.btnIcono.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
+            this.btnIcono.FlatAppearance.BorderSize = 3;
+            this.btnIcono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIcono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIcono.ForeColor = System.Drawing.Color.Black;
+            this.btnIcono.Location = new System.Drawing.Point(501, 136);
+            this.btnIcono.Name = "btnIcono";
+            this.btnIcono.Size = new System.Drawing.Size(100, 50);
+            this.btnIcono.TabIndex = 13;
+            this.btnIcono.Text = "Icono";
+            this.btnIcono.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
+            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(802, 32);
+            this.panel1.Size = new System.Drawing.Size(815, 37);
             this.panel1.TabIndex = 14;
             // 
-            // button2
+            // btnCerrar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
-            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(307, 181);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 36);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Aceptar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Location = new System.Drawing.Point(764, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(50, 37);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAceptar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
-            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(417, 181);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 36);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
+            this.btnAceptar.FlatAppearance.BorderSize = 0;
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAceptar.Location = new System.Drawing.Point(257, 215);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(122, 54);
+            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 3;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(422, 215);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(122, 54);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // frmEvaluacionResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 229);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(812, 281);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnIcono);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.cbxToleranciaS);
+            this.Controls.Add(this.cbxConcistencia);
+            this.Controls.Add(this.cbxCondiciones);
+            this.Controls.Add(this.cbxEsfuerzo);
+            this.Controls.Add(this.cbxDestreza);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEvaluacionResult";
             this.Text = "frmEvaluacionResult";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,21 +274,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbxDestreza;
+        private System.Windows.Forms.ComboBox cbxEsfuerzo;
+        private System.Windows.Forms.ComboBox cbxCondiciones;
+        private System.Windows.Forms.ComboBox cbxConcistencia;
+        private System.Windows.Forms.ComboBox cbxToleranciaS;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIcono;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
