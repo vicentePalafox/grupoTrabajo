@@ -3,12 +3,8 @@
 using MySql.Data.MySqlClient;
 
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace gt2_ELAB.Funciones
 {
@@ -106,13 +102,8 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "estatusEstacionAnterior";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters.Add("@posi", MySqlDbType.Int32);
-                    command.Parameters.Add("@analistAnte", MySqlDbType.Int32);
-
-                    command.Parameters["@idSec"].Value = idSec;
-                    command.Parameters["@posi"].Value= posi;
-                    command.Parameters["@analistAnte"].Value = analistaAtras;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    command.Parameters.Add("@posiAnalist", MySqlDbType.Int32).Value = analistaAtras;
 
                     result = Convert.ToInt32(command.ExecuteScalar());
                 }

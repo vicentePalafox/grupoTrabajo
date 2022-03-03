@@ -45,5 +45,40 @@ namespace gt2_ELAB.Funciones
             }
             return result;
         }
+
+        public int BuscaIdEstacion(int idSec, string posicionEstacion)
+        {
+            int result = 0;
+
+            try
+            {
+                using (var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = conn;
+                    conn.Open();
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "ObtenerIdEstacion_X_Nombre";
+
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
+                    command.Parameters.Add("@posi", MySqlDbType.VarChar,255);
+                    command.Parameters["@idSec"].Value = idSec;
+                    command.Parameters["@posi"].Value = posicionEstacion;
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                        result = reader.GetInt32(0);
+                    else
+                        result = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result = 0;
+            }
+            return result;
+        }
     }
 }

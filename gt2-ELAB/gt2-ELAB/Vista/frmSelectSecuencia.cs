@@ -1,15 +1,8 @@
 ﻿using gt2_ELAB.Funciones;
-
-using MySqlX.XDevAPI.Relational;
+using gt2_ELAB.Vista;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gt2_ELAB
@@ -24,45 +17,91 @@ namespace gt2_ELAB
 
         private void btnComenzar_Click(object sender, EventArgs e)
         {
+            int registro = 0;
+            int PosicionEstacion = 0;
+            Entidad.Analista analista = null;
+            bool insertAnaista = false;
             int idSec = new SQL_Secuencia().IdSec_X_Practica(Convert.ToInt32(cbxPractica.SelectedValue.ToString()));
-            int registro = new SQL_Secuencia().ObtenerCupo(Convert.ToInt32(cbxEstacion.SelectedValue));
-
-            if (registro > 0)
+            for (int i = 1; i <= 12; i++)
             {
-                registro -= 1;
+                registro = new SQL_Secuencia().ObtenerCupo(idSec, i);
 
-                bool DescontarCupo = new SQL_Secuencia().DescontarCupo(Convert.ToInt32(cbxEstacion.SelectedValue), registro);
-                if (DescontarCupo)
+                if (registro.Equals(null) || registro.Equals(0))
                 {
-                    Entidad.Analista analista = new Entidad.Analista()
+                    analista = new Entidad.Analista()
                     {
                         usuario = Entidad.Usuario.UsuarioName,
                         idSecuencia = idSec,
-                        idEstacion = Convert.ToInt32(cbxEstacion.SelectedValue),
-                        posicionAnalista = registro+1
+                        idEstacion = new SQL_Estacion().BuscaIdEstacion(idSec, "Estación 1"),
+                        posicionAnalista = i
                     };
-
-                    bool insertAnaista = new SQL_Analista().InsertAnalista(analista);
-
-                    if (insertAnaista)
+                    PosicionEstacion = 1;
+                    insertAnaista = new SQL_Analista().InsertAnalista(analista);
+                    break;
+                }
+                else if (registro.Equals(1))
+                {
+                    analista = new Entidad.Analista()
                     {
-                        DataTable table = new SQL_Operacion().ListaOperacion(Convert.ToInt32(cbxEstacion.SelectedValue), idSec);
-                        Entidad.Practica practica = new Entidad.Practica();
-                        bool CargaPractica = new SQL_Practica().BuscaPractica(cbxPractica.Text, out practica);
-                        if (CargaPractica)
-                        {//Estacion 1
-                            int position = cbxEstacion.Text.IndexOf(" ");
-                            string estacion = cbxEstacion.Text.Substring(position + 1, 1);
-                            int noEstacion = int.Parse(estacion);
-                            Console.WriteLine(estacion);
-                            frmEjecucion vistaEjecucion = new frmEjecucion(table, practica.ciclos, idSec, noEstacion, (registro+1));
-                            vistaEjecucion.Show();
-                        }
-                    }
+                        usuario = Entidad.Usuario.UsuarioName,
+                        idSecuencia = idSec,
+                        idEstacion = new SQL_Estacion().BuscaIdEstacion(idSec, "Estación 2"),
+                        posicionAnalista = i
+                    };
+                    PosicionEstacion = 2;
+                    insertAnaista = new SQL_Analista().InsertAnalista(analista);
+                    break;
+                }
+                else if (registro.Equals(2))
+                {
+                    analista = new Entidad.Analista()
+                    {
+                        usuario = Entidad.Usuario.UsuarioName,
+                        idSecuencia = idSec,
+                        idEstacion = new SQL_Estacion().BuscaIdEstacion(idSec, "Estación 3"),
+                        posicionAnalista = i
+                    };
+                    PosicionEstacion = 3;
+                    insertAnaista = new SQL_Analista().InsertAnalista(analista);
+                    break;
+                }
+
+                if (registro.Equals(3) && i == 12)
+                {
+                    MessageBox.Show("La practica ya esta llena");
+                    insertAnaista = false;
                 }
             }
-            else
-                MessageBox.Show("Esatción Llena, seleccione otra estación", "AVISO");
+
+            if (insertAnaista)
+            { 
+                Entidad.Practica practica = new Entidad.Practica();
+                bool CargaPractica = new SQL_Practica().BuscaPractica(cbxPractica.Text, out practica);
+                if (CargaPractica)
+                {
+                    int noEstacion = PosicionEstacion;
+                    DataTable table = new SQL_Operacion().ListaOperacion(noEstacion, idSec);
+                    int idPractica = Convert.ToInt32(cbxPractica.SelectedValue);
+
+                    if (noEstacion != 1)
+                    {
+                        frmPzCola frmPz = new frmPzCola();
+                        DialogResult result = frmPz.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            int pzcola = int.Parse(frmPz.txtPZcola.Text);
+                            frmEjecucion vistaEjecucion = new frmEjecucion(table, practica.ciclos, idSec, noEstacion, analista.posicionAnalista, idPractica, pzcola);
+                            vistaEjecucion.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        frmEjecucion vistaEjecucion = new frmEjecucion(table, practica.ciclos, idSec, noEstacion, analista.posicionAnalista, idPractica, 0);
+                        vistaEjecucion.ShowDialog();
+                    }
+                    Close();
+                }
+            }
         }
 
         public void CargarCBXPractica()
@@ -87,32 +126,6 @@ namespace gt2_ELAB
             }
         }
 
-        public void CargarCBXEstacion()
-        {
-            try
-            {
-                int idSec = new SQL_Secuencia().IdSec_X_Practica(Convert.ToInt32(cbxPractica.SelectedValue.ToString()));
-                DataTable dt = new SQL_Estacion().ListaEstacion(idSec);
-                cbxEstacion.DataSource = dt;
-
-                DataRow r = dt.NewRow();
-                r[0] = 0;
-                r[1] = "";
-                dt.Rows.InsertAt(r, 0);
-
-                cbxEstacion.ValueMember = "id";
-                cbxEstacion.DisplayMember = "nombre";
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        private void cbxPractica_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarCBXEstacion();
-        }
-
+        private void btnCerrar_Click(object sender, EventArgs e) => Close();
     }
 }

@@ -34,6 +34,7 @@ namespace gt2_ELAB.Vista
                 Entidad.Usuario.UsuarioEscuela=escuela;
 
                 frmAnalisis vistaAnalisis = new frmAnalisis();
+                Hide();
                 vistaAnalisis.Show();
             }
             else

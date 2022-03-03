@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using MySqlX.XDevAPI.Common;
 
 namespace gt2_ELAB.Funciones
 {
@@ -48,7 +49,7 @@ namespace gt2_ELAB.Funciones
             return result;
         }
 
-        public bool SecuenciaSeleccionada(int idSec, out Entidad.Secuencia secuencia)
+        public bool BuscaSecuencia(int idSec, out Entidad.Secuencia secuencia)
         {
             bool result = false;
             secuencia = null;
@@ -72,8 +73,8 @@ namespace gt2_ELAB.Funciones
                     {
                         secuencia = new Entidad.Secuencia()
                         {
-                            nombre = reader.GetString(0),
-                            noEstaciones = reader.GetInt32(2)
+                            nombre = reader.GetString(1),
+                            noEstaciones = reader.GetInt32(3)
                         };
                         result = true;
                     }
@@ -90,10 +91,64 @@ namespace gt2_ELAB.Funciones
                 result =false;
             }
             return result;
-
         }
 
-        public int ObtenerCupo(int idSec)
+        public void ActualizaIniciaTAnalista1(int idSec)
+        {
+            try
+            {
+                using (var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = conn;
+                    conn.Open();
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "UpdateEstadoTEstacion1";
+
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public int buscaIniciaTAnalista1(int idSec)
+        {
+            int result = 0;
+            try
+            {
+                using (var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = conn;
+                    conn.Open();
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "ObtenerEstadoTEstacion1";
+
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    result = Convert.ToInt32(command.ExecuteScalar());
+
+                    //MySqlDataReader reader = command.ExecuteReader();
+                    //if (reader.Read())
+                    //    result = reader.GetInt32(0);
+                    //else
+                    //    result = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result = 0;
+            }
+            return result;
+        }
+
+        public int ObtenerCupo(int idSec, int posi)
         {
             int result = 0;
 
@@ -106,13 +161,15 @@ namespace gt2_ELAB.Funciones
                     conn.Open();
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "ObtenerCupo";
+                    command.CommandText = "ObtenerCupo2";
 
                     command.Parameters.Add("@idSec", MySqlDbType.Int32);
+                    command.Parameters.Add("@posi", MySqlDbType.Int32);
                     command.Parameters["@idSec"].Value = idSec;
+                    command.Parameters["@posi"].Value = posi;
 
                     MySqlDataReader reader =command.ExecuteReader();
-                    if(reader.Read())
+                    if (reader.Read())
                         result = reader.GetInt32(0);
                     else
                         result = 0;

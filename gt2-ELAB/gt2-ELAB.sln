@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gt2-ELAB", "gt2-ELAB\gt2-ELAB.csproj", "{BFBA470C-38D6-4D0F-84CE-A84A2E4DB315}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "E-LAB_GT3", "E-LAB_GT3\E-LAB_GT3.vdproj", "{9E40EACF-0DF1-49E4-8B8F-F13B71CCD67E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BFBA470C-38D6-4D0F-84CE-A84A2E4DB315}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BFBA470C-38D6-4D0F-84CE-A84A2E4DB315}.Release|x64.ActiveCfg = Release|x64
 		{BFBA470C-38D6-4D0F-84CE-A84A2E4DB315}.Release|x64.Build.0 = Release|x64
+		{9E40EACF-0DF1-49E4-8B8F-F13B71CCD67E}.Debug|Any CPU.ActiveCfg = Debug
+		{9E40EACF-0DF1-49E4-8B8F-F13B71CCD67E}.Debug|x64.ActiveCfg = Debug
+		{9E40EACF-0DF1-49E4-8B8F-F13B71CCD67E}.Release|Any CPU.ActiveCfg = Release
+		{9E40EACF-0DF1-49E4-8B8F-F13B71CCD67E}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

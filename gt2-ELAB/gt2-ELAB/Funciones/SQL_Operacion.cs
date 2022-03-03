@@ -1,14 +1,10 @@
-﻿using gt2_ELAB.Entidad;
-
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.IO;
 
 namespace gt2_ELAB.Funciones
 {
@@ -18,11 +14,10 @@ namespace gt2_ELAB.Funciones
         {
 
         }
-
+        
         public DataTable ListaOperacion(int idMesa, int idSec)
         {
             DataTable result = new DataTable();
-
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
@@ -33,17 +28,14 @@ namespace gt2_ELAB.Funciones
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "ListaOperacion";
-
                     command.Parameters.Add("@mesa", MySqlDbType.Int32);
                     command.Parameters.Add("@idSec", MySqlDbType.Int32);
                     
                     command.Parameters["@mesa"].Value=idMesa;
                     command.Parameters["@idSec"].Value = idSec;
-                    
 
                     MySqlDataReader reader = command.ExecuteReader();
-                    if(reader.Read())
-                       result.Load(reader);
+                    result.Load(reader);
                 }
             }
             catch (Exception ex)
@@ -53,9 +45,11 @@ namespace gt2_ELAB.Funciones
             return result;
         }
 
-        //public List<Ejecucion> TomaTiempo()
-        //{
-
-        //}
+        public Image byteArrayToImage(byte[] byteAvatar)
+        {
+            MemoryStream ms = new MemoryStream(byteAvatar);
+            Image devolverImagen = Image.FromStream(ms);
+            return devolverImagen;
+        }
     }
 }

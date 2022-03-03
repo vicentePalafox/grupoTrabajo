@@ -57,6 +57,7 @@
             this.lblTo4 = new System.Windows.Forms.Label();
             this.lblTn4 = new System.Windows.Forms.Label();
             this.lblTe4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,6 +221,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -370,6 +372,17 @@
             this.lblTe4.TabIndex = 26;
             this.lblTe4.Text = "0.0";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(36, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(206, 24);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Analisis de Practicas";
+            // 
             // frmAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,8 +417,10 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAnalisis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAnalisis";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,5 +456,6 @@
         private System.Windows.Forms.Label lblTo4;
         private System.Windows.Forms.Label lblTn4;
         private System.Windows.Forms.Label lblTe4;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -20,11 +20,11 @@ namespace gt2_ELAB.Vista
         private void btnNuevaP_Click(object sender, EventArgs e)
         {
             frmSelectSecuencia vistaNuevaPractica = new frmSelectSecuencia();
-            DialogResult dialogResult;
-            dialogResult = vistaNuevaPractica.ShowDialog();
+            //DialogResult dialogResult;
+            /*dialogResult =*/ vistaNuevaPractica.Show();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e) => Close();
+        private void btnCerrar_Click(object sender, EventArgs e) => Application.Exit();
 
         private void btnVisualizarT_Click(object sender, EventArgs e)
         {

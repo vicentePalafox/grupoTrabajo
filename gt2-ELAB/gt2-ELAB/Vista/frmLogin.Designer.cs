@@ -76,7 +76,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(190, 112);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(133, 26);
-            this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtContraseña
             // 
@@ -84,7 +84,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(190, 164);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(133, 26);
-            this.txtContraseña.TabIndex = 4;
+            this.txtContraseña.TabIndex = 2;
             // 
             // panel1
             // 
@@ -105,9 +105,9 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(423, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(426, 0);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(36, 28);
+            this.btnCerrar.Size = new System.Drawing.Size(36, 31);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -121,7 +121,7 @@
             this.btnIniciar.Location = new System.Drawing.Point(164, 219);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(129, 56);
-            this.btnIniciar.TabIndex = 6;
+            this.btnIniciar.TabIndex = 3;
             this.btnIniciar.Text = "Iniciar Sesion";
             this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
@@ -140,6 +140,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

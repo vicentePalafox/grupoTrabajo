@@ -17,6 +17,18 @@ namespace gt2_ELAB
             InitializeComponent();
         }
 
+        public frmResultados(DataTable table, string fecha, int idSec)
+        {
+            InitializeComponent();
+
+            Entidad.Secuencia secuencia = new Entidad.Secuencia();
+            new Funciones.SQL_Secuencia().BuscaSecuencia(idSec, out secuencia);
+
+            lblAnalisis.Text = secuencia.nombre;
+            lblResultados.Text = fecha;
+            dgvMesa1.DataSource = table;
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
