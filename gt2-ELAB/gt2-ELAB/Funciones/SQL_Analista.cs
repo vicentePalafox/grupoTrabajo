@@ -13,10 +13,124 @@ namespace gt2_ELAB.Funciones
 
         }
 
-        public DataTable listaAnalisis()
+        public DataTable listaAnalisis(string nombre)
         {
             //SELECT tobs, tnor,test FROM `configanalisis` WHERE noAnalista = 1 AND escuela = 'ACK' AND fecha LIKE '03/03/2022 01%'
             //SELECT id, CONCAT((SELECT practica.nombrePractica FROM practica WHERE id = 5), ' - ', fecha) FROM configanalisis WHERE usuario ='vic'
+
+            DataTable dt = new DataTable();
+            try
+            {
+                using(var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    db.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = db;
+                    cmd.CommandText = "ListaAnalisisResults";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@alumnoAn", MySqlDbType.VarChar,255).Value = nombre;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                dt = null;
+            }
+            return dt;
+        }
+
+        public bool SelecionaPractica(int idConfig, out int idPrac, out int noAnalista, out string escuela, out string fecha)
+        {
+            idPrac = 0;
+            noAnalista = 0;
+            escuela = string.Empty;
+            fecha = string.Empty;
+            bool resp = false;
+            try
+            {
+                using(var db =new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    db.Open();
+                    MySqlCommand cmd=new MySqlCommand();
+                    cmd.Connection = db;
+                    cmd.CommandType=CommandType.StoredProcedure;
+                    cmd.CommandText = "BuscaInfoTResult";
+                    cmd.Parameters.Add("idConfi", MySqlDbType.Int32).Value = idConfig;
+
+                    MySqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        idPrac = int.Parse(dr[0].ToString());
+                        noAnalista = int.Parse(dr[1].ToString());
+                        escuela = dr[2].ToString();
+                        fecha = dr[3].ToString();
+                    }
+                    resp = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                resp = false;
+            }
+            return resp;
+        }
+
+        public bool BuscaTiempoAnalistas(int noAnalista, int idPract, string escuela, string fechaIni, string fechaFin, out string tobs1, out string tobs2, out string tobs3, out string test1, out string test2, out string test3, out string tnor1, out string tnor2, out string tnor3)
+        {
+            bool resp=false;
+
+            tobs1 =String.Empty;
+            tobs2 =String.Empty;
+            tobs3 =String.Empty;
+            test1 =String.Empty;
+            test2 =String.Empty;
+            test3 =String.Empty;
+            tnor1 =String.Empty;
+            tnor2 =String.Empty;
+            tnor3 =String.Empty;
+
+            try
+            {
+                using (var db =new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    db.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = db;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "BuscaTiemposAnalisis";
+
+                    cmd.Parameters.Add("@noAnalista", MySqlDbType.Int32).Value = noAnalista;
+                    cmd.Parameters.Add("@idPract", MySqlDbType.Int32).Value = idPract;
+                    cmd.Parameters.Add("@escuelaAl", MySqlDbType.VarChar, 255).Value = escuela;
+                    cmd.Parameters.Add("@fechaIni", MySqlDbType.VarChar,255).Value = fechaIni;
+                    cmd.Parameters.Add("@fechaFin", MySqlDbType.VarChar, 255).Value = fechaFin;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    
+                    tobs1 = dt.Rows[0][0].ToString();
+                    tobs2 = dt.Rows[0][1].ToString();
+                    tobs3 = dt.Rows[0][2].ToString();
+
+
+
+                    foreach (DataRow item in dt.Rows)
+                    {
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                resp=false;
+            }
         }
 
         public bool InsertAnalista(Entidad.Analista analista)
@@ -29,7 +143,7 @@ namespace gt2_ELAB.Funciones
                     MySqlCommand command = new MySqlCommand();
                     conn.Open();
                     command.Connection = conn;
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "AltaAnalista";
 
                     command.Parameters.Add("@username", MySqlDbType.VarChar, 200);
