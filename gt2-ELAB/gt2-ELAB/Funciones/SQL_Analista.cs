@@ -13,6 +13,12 @@ namespace gt2_ELAB.Funciones
 
         }
 
+        public DataTable listaAnalisis()
+        {
+            //SELECT tobs, tnor,test FROM `configanalisis` WHERE noAnalista = 1 AND escuela = 'ACK' AND fecha LIKE '03/03/2022 01%'
+            //SELECT id, CONCAT((SELECT practica.nombrePractica FROM practica WHERE id = 5), ' - ', fecha) FROM configanalisis WHERE usuario ='vic'
+        }
+
         public bool InsertAnalista(Entidad.Analista analista)
         {
             bool result = false;
