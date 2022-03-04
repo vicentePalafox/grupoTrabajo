@@ -28,7 +28,7 @@ namespace gt2_ELAB.Funciones
                     cmd.Connection = db;
                     cmd.CommandText = "ListaAnalisisResults";
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@alumnoAn", MySqlDbType.VarChar,255).Value = nombre;
+                    cmd.Parameters.Add("@usuarioAn", MySqlDbType.VarChar,255).Value = nombre;
 
                     MySqlDataReader reader = cmd.ExecuteReader();
                     dt.Load(reader);
@@ -42,11 +42,12 @@ namespace gt2_ELAB.Funciones
             return dt;
         }
 
-        public bool SelecionaPractica(int idConfig, out int idPrac, out int noAnalista, out string escuela, out string fecha)
+        public bool SelecionaPractica(int idConfig, out int idPrac, out int noAnalista, out string escuela, out int noEst, out string fecha)
         {
             idPrac = 0;
             noAnalista = 0;
             escuela = string.Empty;
+            noEst = 0;
             fecha = string.Empty;
             bool resp = false;
             try
@@ -58,7 +59,7 @@ namespace gt2_ELAB.Funciones
                     cmd.Connection = db;
                     cmd.CommandType=CommandType.StoredProcedure;
                     cmd.CommandText = "BuscaInfoTResult";
-                    cmd.Parameters.Add("idConfi", MySqlDbType.Int32).Value = idConfig;
+                    cmd.Parameters.Add("idConfig", MySqlDbType.Int32).Value = idConfig;
 
                     MySqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
@@ -66,7 +67,8 @@ namespace gt2_ELAB.Funciones
                         idPrac = int.Parse(dr[0].ToString());
                         noAnalista = int.Parse(dr[1].ToString());
                         escuela = dr[2].ToString();
-                        fecha = dr[3].ToString();
+                        noEst = int.Parse(dr[3].ToString());
+                        fecha = dr[4].ToString();
                     }
                     resp = true;
                 }
@@ -83,15 +85,15 @@ namespace gt2_ELAB.Funciones
         {
             bool resp=false;
 
-            tobs1 =String.Empty;
-            tobs2 =String.Empty;
-            tobs3 =String.Empty;
-            test1 =String.Empty;
-            test2 =String.Empty;
-            test3 =String.Empty;
-            tnor1 =String.Empty;
-            tnor2 =String.Empty;
-            tnor3 =String.Empty;
+            tobs1 =string.Empty;
+            tobs2 =string.Empty;
+            tobs3 =string.Empty;
+            test1 =string.Empty;
+            test2 =string.Empty;
+            test3 =string.Empty;
+            tnor1 =string.Empty;
+            tnor2 =string.Empty;
+            tnor3 =string.Empty;
 
             try
             {
@@ -114,23 +116,26 @@ namespace gt2_ELAB.Funciones
                     dt.Load(reader);
                     
                     tobs1 = dt.Rows[0][0].ToString();
-                    tobs2 = dt.Rows[0][1].ToString();
-                    tobs3 = dt.Rows[0][2].ToString();
+                    tobs2 = dt.Rows[1][0].ToString();
+                    tobs3 = dt.Rows[2][0].ToString();
 
+                    tnor1 = dt.Rows[0][1].ToString();
+                    tnor2 = dt.Rows[1][1].ToString();
+                    tnor3 = dt.Rows[2][1].ToString();
 
-
-                    foreach (DataRow item in dt.Rows)
-                    {
-
-                    }
-
+                    test1 = dt.Rows[0][2].ToString();
+                    test2 = dt.Rows[1][2].ToString();
+                    test3 = dt.Rows[2][2].ToString();
+                    
+                    resp = true;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                resp=false;
+                resp = false;
             }
+            return resp;
         }
 
         public bool InsertAnalista(Entidad.Analista analista)
