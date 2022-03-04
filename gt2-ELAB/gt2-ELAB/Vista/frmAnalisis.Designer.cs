@@ -414,7 +414,7 @@
             // 
             // panelEst3
             // 
-            this.panelEst3.BackColor = System.Drawing.Color.IndianRed;
+            this.panelEst3.BackColor = System.Drawing.SystemColors.Control;
             this.panelEst3.Controls.Add(this.lblTe3);
             this.panelEst3.Controls.Add(this.label4);
             this.panelEst3.Controls.Add(this.lblTo3);

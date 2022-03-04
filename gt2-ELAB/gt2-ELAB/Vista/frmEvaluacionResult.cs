@@ -14,15 +14,16 @@ namespace gt2_ELAB.Vista
 {
     public partial class frmEvaluacionResult : Form
     {
+        int idConfig = 0;//se pide para actualizar calculos
+
         string fechaIni;
         decimal total;
         decimal destreza, esfuerzo, condicion, concistencia, tolerancia;
-        int ciclo, idSec, idPrac, noEstacion, noAnalista;
-
-        
+        int ciclo, idSec, idPrac, noEstacion, noAnalista, ciclos;
+        bool insert = false;
 
         DataTable dtprocesos;
-        public frmEvaluacionResult(DataTable table, int ciclo, int idSecuencia, int idPract, int noEstacion, int numeroAnalista, string fechaIni)
+        public frmEvaluacionResult(DataTable table, int ciclo, int idSecuencia, int idPract, int noEstacion, int numeroAnalista, string fechaIni, int ciclos)
         {
             InitializeComponent();
             dtprocesos = table;
@@ -32,6 +33,16 @@ namespace gt2_ELAB.Vista
             this.noEstacion = noEstacion;
             this.noAnalista = numeroAnalista;
             this.fechaIni = fechaIni;
+            this.ciclo=ciclos;
+            insert = true;
+        }
+
+        public frmEvaluacionResult(DataTable table, string idConfig, int ciclos)
+        {
+            InitializeComponent();
+            dtprocesos = table;
+            this.idConfig =int.Parse(idConfig);
+            this.ciclo = ciclos;
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
@@ -55,7 +66,10 @@ namespace gt2_ELAB.Vista
             decimal tEst = EvalTest(tNor);
 
             //inserta los valores
-            new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
+            if (insert)
+                new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
+            else
+                new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
         }
 
         private void btnCerrar_Click(object sender, EventArgs e) => Close();
