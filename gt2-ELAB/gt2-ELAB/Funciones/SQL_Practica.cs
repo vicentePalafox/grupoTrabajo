@@ -23,9 +23,10 @@ namespace gt2_ELAB.Funciones
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
                 {
+                    conn.Open();
                     MySqlCommand command = new MySqlCommand();
                     command.Connection = conn;
-                    conn.Open();
+                    
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "BuscaPractica";
@@ -54,6 +55,36 @@ namespace gt2_ELAB.Funciones
                 Console.WriteLine(ex.Message);
                 practica=null;
                 result=false;
+            }
+            return result;
+        }
+
+        public string NombrePract_X_id(int idPract)
+        {
+            string result = string.Empty;
+            try
+            {
+                using(var conn =new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    conn.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = conn;
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "BuscaPracticaXId";
+
+                    command.Parameters.Add("@idP", MySqlDbType.Int32).Value = idPract;
+                    MySqlDataReader reader =command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        result = reader[0].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result =string.Empty;
             }
             return result;
         }

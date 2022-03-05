@@ -27,7 +27,7 @@ namespace gt2_ELAB.Vista
             DataTable dt = new DataTable();
             dt = new Funciones.SQL_Analista().listaAnalisis(Entidad.Usuario.UsuarioName);
 
-            
+
             lbxListaAnalisis.ValueMember = "id";
             lbxListaAnalisis.DisplayMember = "Practica";
             lbxListaAnalisis.DataSource = dt;
@@ -35,18 +35,18 @@ namespace gt2_ELAB.Vista
 
         public void ColorEstacionAct(int noEstacion)
         {
-            if(noEstacion == 1)
+            if (noEstacion == 1)
             {
-                panelEst1.BackColor=Color.IndianRed;
+                panelEst1.BackColor = Color.IndianRed;
                 panelEst1.ForeColor = Color.White;
 
-                panelEst2.BackColor=SystemColors.Control;
-                panelEst2.ForeColor=SystemColors.ControlText;
+                panelEst2.BackColor = SystemColors.Control;
+                panelEst2.ForeColor = SystemColors.ControlText;
 
-                panelEst3.BackColor=SystemColors.Control;
-                panelEst3.ForeColor=SystemColors.ControlText;
+                panelEst3.BackColor = SystemColors.Control;
+                panelEst3.ForeColor = SystemColors.ControlText;
             }
-            else if(noEstacion == 2)
+            else if (noEstacion == 2)
             {
                 panelEst1.BackColor = SystemColors.Control;
                 panelEst1.ForeColor = SystemColors.ControlText;
@@ -80,7 +80,20 @@ namespace gt2_ELAB.Vista
 
         private void btnVisualizarT_Click(object sender, EventArgs e)
         {
-            frmResultados vistaresulados = new frmResultados();
+            int idPrac;
+            int noAnalista;
+            string escuela;
+            int noEst;
+            string fecha;
+            int ciclos;
+
+            bool resp = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+
+            DataTable dtProcesos = new DataTable();
+            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Entidad.Usuario.UsuarioName, fecha, noAnalista, noEst);
+            
+
+            frmResultados vistaresulados = new frmResultados(dtProcesos,fecha, ciclos, idPrac);
             vistaresulados.Show();
         }
 
@@ -92,10 +105,10 @@ namespace gt2_ELAB.Vista
                 string hora = fecha.Substring(11);
 
                 DateTime time = new DateTime();
-                TimeSpan timeSpan = new TimeSpan(0,5,0);
+                TimeSpan timeSpan = new TimeSpan(0, 5, 0);
                 time = DateTime.Parse(hora);
 
-                resp =$"{fecha.Substring(0,11)}{time.Subtract(timeSpan).ToString("hh:mm")}";
+                resp = $"{fecha.Substring(0, 11)}{time.Subtract(timeSpan).ToString("hh:mm")}";
             }
             catch (Exception ex)
             {
@@ -115,7 +128,7 @@ namespace gt2_ELAB.Vista
                 DateTime time = new DateTime();
                 time = DateTime.Parse(hora).AddMinutes(5);
 
-                resp =$"{fecha.Substring(0, 11)}{time.ToString("hh:mm")}";
+                resp = $"{fecha.Substring(0, 11)}{time.ToString("hh:mm")}";
             }
             catch (Exception ex)
             {
@@ -127,9 +140,9 @@ namespace gt2_ELAB.Vista
 
         private void lbxListaAnalisis_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(lbxListaAnalisis.SelectedIndex != -1)
+            if (lbxListaAnalisis.SelectedIndex != -1)
             {
-                idConfig =  lbxListaAnalisis.SelectedValue.ToString();
+                idConfig = lbxListaAnalisis.SelectedValue.ToString();
                 int idConf;
                 if (int.TryParse(idConfig, out idConf))
                 {
@@ -139,7 +152,7 @@ namespace gt2_ELAB.Vista
                     int noEst;
                     string fecha;
                     int ciclos;
-                    
+
                     bool resp = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
                     string fechaIni = fechaRangoIni(fecha);
@@ -147,9 +160,9 @@ namespace gt2_ELAB.Vista
 
                     ColorEstacionAct(noEst);
 
-                    string tobs1,tobs2,tobs3,tnor1,tnor2,tnor3,test1,test2,test3;
+                    string tobs1, tobs2, tobs3, tnor1, tnor2, tnor3, test1, test2, test3;
 
-                    bool tiempos = new Funciones.SQL_Analista().BuscaTiempoAnalistas(noAnalista, idPrac, escuela, fechaIni, fechaFin,out tobs1,out tobs2,out tobs3,out test1,out test2,out test3,out tnor1,out tnor2,out tnor3);
+                    bool tiempos = new Funciones.SQL_Analista().BuscaTiempoAnalistas(noAnalista, idPrac, escuela, fechaIni, fechaFin, out tobs1, out tobs2, out tobs3, out test1, out test2, out test3, out tnor1, out tnor2, out tnor3);
                     if (tiempos)
                     {
                         lblTo1.Text = tobs1;
@@ -180,11 +193,11 @@ namespace gt2_ELAB.Vista
                     }
                 }
             }
-            
+
         }
 
         private void btnModificarR_Click(object sender, EventArgs e)
-{
+        {
             int idPrac;
             int noAnalista;
             string escuela;

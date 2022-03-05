@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResultados));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAnalisis = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.lblResultados = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvMesa1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +53,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(481, 37);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(49, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 27);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Resultados";
             // 
             // btnCerrar
             // 
@@ -121,22 +132,13 @@
             // 
             // dgvMesa1
             // 
+            this.dgvMesa1.AllowUserToAddRows = false;
+            this.dgvMesa1.AllowUserToDeleteRows = false;
             this.dgvMesa1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMesa1.Location = new System.Drawing.Point(32, 205);
             this.dgvMesa1.Name = "dgvMesa1";
-            this.dgvMesa1.Size = new System.Drawing.Size(400, 153);
+            this.dgvMesa1.Size = new System.Drawing.Size(400, 192);
             this.dgvMesa1.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(49, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 27);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Resultados";
             // 
             // frmResultados
             // 
