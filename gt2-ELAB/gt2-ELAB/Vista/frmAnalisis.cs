@@ -1,4 +1,6 @@
-﻿using System;
+﻿using gt2_ELAB.Entidad;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace gt2_ELAB.Vista
 {
     public partial class frmAnalisis : Form
     {
+        string idConfig;
+
         public frmAnalisis()
         {
             InitializeComponent();
@@ -125,7 +129,7 @@ namespace gt2_ELAB.Vista
         {
             if(lbxListaAnalisis.SelectedIndex != -1)
             {
-                string idConfig =  lbxListaAnalisis.SelectedValue.ToString();
+                idConfig =  lbxListaAnalisis.SelectedValue.ToString();
                 int idConf;
                 if (int.TryParse(idConfig, out idConf))
                 {
@@ -134,8 +138,9 @@ namespace gt2_ELAB.Vista
                     string escuela;
                     int noEst;
                     string fecha;
+                    int ciclos;
                     
-                    bool resp = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha);
+                    bool resp = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
                     string fechaIni = fechaRangoIni(fecha);
                     string fechaFin = fechaRangoFin(fecha);
@@ -176,6 +181,24 @@ namespace gt2_ELAB.Vista
                 }
             }
             
+        }
+
+        private void btnModificarR_Click(object sender, EventArgs e)
+{
+            int idPrac;
+            int noAnalista;
+            string escuela;
+            int noEst;
+            string fecha;
+            int ciclos;
+
+            bool resp = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+
+            DataTable dtProcesos = new DataTable();
+            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Entidad.Usuario.UsuarioName, fecha, noAnalista, noEst);
+
+            //DataTable table, string idConfig, int ciclos
+            new frmEvaluacionResult(dtProcesos, idConfig, ciclos).Show();
         }
     }
 }

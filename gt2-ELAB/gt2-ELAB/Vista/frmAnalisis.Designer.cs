@@ -147,6 +147,7 @@
             this.btnModificarR.TabIndex = 5;
             this.btnModificarR.Text = "Modificar Resultados";
             this.btnModificarR.UseVisualStyleBackColor = false;
+            this.btnModificarR.Click += new System.EventHandler(this.btnModificarR_Click);
             // 
             // btnEliminarR
             // 

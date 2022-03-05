@@ -42,7 +42,13 @@ namespace gt2_ELAB.Vista
             InitializeComponent();
             dtprocesos = table;
             this.idConfig =int.Parse(idConfig);
-            this.ciclo = ciclos;
+            ciclo = ciclos;
+        }
+
+        //para modificar la practica se usara este metodo para llenar los cbx con el valor usado anteriormente
+        public void CargarCBX()
+        {
+
         }
 
         private void btnTotal_Click(object sender, EventArgs e)

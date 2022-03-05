@@ -42,13 +42,14 @@ namespace gt2_ELAB.Funciones
             return dt;
         }
 
-        public bool SelecionaPractica(int idConfig, out int idPrac, out int noAnalista, out string escuela, out int noEst, out string fecha)
+        public bool SelecionaPractica(int idConfig, out int idPrac, out int noAnalista, out string escuela, out int noEst, out string fecha, out int ciclos)
         {
             idPrac = 0;
             noAnalista = 0;
             escuela = string.Empty;
             noEst = 0;
             fecha = string.Empty;
+            ciclos = 0;
             bool resp = false;
             try
             {
@@ -69,6 +70,7 @@ namespace gt2_ELAB.Funciones
                         escuela = dr[2].ToString();
                         noEst = int.Parse(dr[3].ToString());
                         fecha = dr[4].ToString();
+                        ciclos = int.Parse( dr[5].ToString());
                     }
                     resp = true;
                 }
@@ -454,6 +456,37 @@ namespace gt2_ELAB.Funciones
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public DataTable CargaListaOper(string nombre, string fecha, int posiAnalist, int posiEstaci)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                using(var conn =new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "ListaTiempoObsAnalista";
+
+                    cmd.Parameters.Add("@usuarioName", MySqlDbType.VarChar, 255).Value = nombre;
+                    cmd.Parameters.Add("@fecha", MySqlDbType.VarChar, 255).Value = fecha;
+                    cmd.Parameters.Add("@PosiAnalista", MySqlDbType.Int32).Value = posiAnalist;
+                    cmd.Parameters.Add("@posiEstacion", MySqlDbType.Int32).Value = posiEstaci;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                dt = null;
+            }
+            return dt;
         }
 
         public bool EliminaAnalista_Ejecucion(string username, int idSec, int idEst, int posi, int posiEstacion)
