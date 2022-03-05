@@ -133,7 +133,7 @@
             "0",
             "-0.02",
             "-0.04"});
-            this.cbxConcistencia.Location = new System.Drawing.Point(367, 104);
+            this.cbxConcistencia.Location = new System.Drawing.Point(370, 104);
             this.cbxConcistencia.Name = "cbxConcistencia";
             this.cbxConcistencia.Size = new System.Drawing.Size(85, 26);
             this.cbxConcistencia.TabIndex = 4;
@@ -243,7 +243,7 @@
             "0.97",
             "0.98",
             "0.99"});
-            this.cbxToleranciaS.Location = new System.Drawing.Point(659, 104);
+            this.cbxToleranciaS.Location = new System.Drawing.Point(668, 104);
             this.cbxToleranciaS.Name = "cbxToleranciaS";
             this.cbxToleranciaS.Size = new System.Drawing.Size(85, 26);
             this.cbxToleranciaS.TabIndex = 5;
@@ -251,7 +251,7 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(501, 104);
+            this.txtTotal.Location = new System.Drawing.Point(502, 104);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 26);
             this.txtTotal.TabIndex = 6;
@@ -290,7 +290,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(364, 83);
+            this.label5.Location = new System.Drawing.Point(367, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 18);
             this.label5.TabIndex = 10;
@@ -300,7 +300,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(528, 83);
+            this.label6.Location = new System.Drawing.Point(529, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 18);
             this.label6.TabIndex = 11;
@@ -312,9 +312,9 @@
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(631, 83);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 18);
+            this.label7.Size = new System.Drawing.Size(166, 18);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Tolerancia Sulemento";
+            this.label7.Text = "Tolerancia Suplemento";
             // 
             // btnTotal
             // 
@@ -324,7 +324,7 @@
             this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
-            this.btnTotal.Location = new System.Drawing.Point(501, 136);
+            this.btnTotal.Location = new System.Drawing.Point(502, 136);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(100, 50);
             this.btnTotal.TabIndex = 13;

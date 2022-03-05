@@ -19,11 +19,11 @@ namespace gt2_ELAB.Vista
         string fechaIni;
         decimal total;
         decimal destreza, esfuerzo, condicion, concistencia, tolerancia;
-        int ciclo, idSec, idPrac, noEstacion, noAnalista, ciclos;
-        bool insert = false;
+        int ciclo, idSec, idPrac, noEstacion, noAnalista;
+        bool insert;
 
         DataTable dtprocesos;
-        public frmEvaluacionResult(DataTable table, int ciclo, int idSecuencia, int idPract, int noEstacion, int numeroAnalista, string fechaIni, int ciclos)
+        public frmEvaluacionResult(DataTable table, int ciclo, int idSecuencia, int idPract, int noEstacion, int numeroAnalista, string fechaIni)
         {
             InitializeComponent();
             dtprocesos = table;
@@ -33,7 +33,7 @@ namespace gt2_ELAB.Vista
             this.noEstacion = noEstacion;
             this.noAnalista = numeroAnalista;
             this.fechaIni = fechaIni;
-            this.ciclo=ciclos;
+            
             insert = true;
         }
 
@@ -43,12 +43,25 @@ namespace gt2_ELAB.Vista
             dtprocesos = table;
             this.idConfig =int.Parse(idConfig);
             ciclo = ciclos;
+
+            CargarCBX();
+
+            insert = false;
         }
 
         //para modificar la practica se usara este metodo para llenar los cbx con el valor usado anteriormente
         public void CargarCBX()
         {
-
+            string destreza, esfuerzo, condicion, concistencia, tolerancia;
+            bool cargaCBX = new Funciones.SQL_Analista().obtenerConfig(idConfig, out destreza, out esfuerzo, out condicion, out concistencia, out tolerancia);
+            if (cargaCBX)
+            {
+                cbxDestreza.Text = destreza;
+                cbxEsfuerzo.Text = esfuerzo;
+                cbxCondiciones.Text = condicion;
+                cbxConcistencia.Text = concistencia;
+                cbxToleranciaS.Text = tolerancia;
+            }
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
@@ -73,9 +86,13 @@ namespace gt2_ELAB.Vista
 
             //inserta los valores
             if (insert)
+            {
                 new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
+                new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec,  noAnalista, noEstacion);
+            }    
             else
                 new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
+            Close();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e) => Close();

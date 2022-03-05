@@ -460,7 +460,6 @@ namespace gt2_ELAB.Funciones
 
         public DataTable CargaListaOper(string nombre, string fecha, int posiAnalist, int posiEstaci)
         {
-
             DataTable dt = new DataTable();
             try
             {
@@ -489,7 +488,7 @@ namespace gt2_ELAB.Funciones
             return dt;
         }
 
-        public bool EliminaAnalista_Ejecucion(string username, int idSec, int idEst, int posi, int posiEstacion)
+        public bool EliminaAnalista_Ejecucion(string username, int idSec, int posi, int posiEstacion)
         {
             bool resp = false;
             try
@@ -503,15 +502,13 @@ namespace gt2_ELAB.Funciones
                     cmd.CommandText = "LimpiarAnalistaUs";
                     cmd.Parameters.Add("@usuarioAl", MySqlDbType.VarChar, 255).Value = username;
                     cmd.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
-                    cmd.Parameters.Add("@idEst", MySqlDbType.Int32).Value = idEst;
                     cmd.Parameters.Add("@posi", MySqlDbType.Int32).Value = posi;
                     cmd.Parameters.Add("@posiEst", MySqlDbType.Int32).Value=posiEstacion;
 
-                    int exito = cmd.ExecuteNonQuery();
-                    if (exito > 0)
-                        resp = true;
-                    else
-                        resp = false;
+                    cmd.ExecuteNonQuery();
+                    
+                    resp = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -522,5 +519,45 @@ namespace gt2_ELAB.Funciones
             return resp;
         }
     
+        public bool obtenerConfig(int idConfig,out string destreza,out string esfuerzo,out string condicion,out string concistencia,out string tolerancia)
+        {
+            bool resp= false;
+            destreza = string.Empty;
+            esfuerzo = string.Empty;
+            condicion = string.Empty;
+            concistencia = string.Empty;
+            tolerancia = string.Empty;
+
+            try
+            {
+                using (var conn =new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "DatosConfigPractica";
+                    cmd.Parameters.Add("@idConfig", MySqlDbType.Int32).Value = idConfig;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        destreza = reader[0].ToString();
+                        esfuerzo = reader[1].ToString();
+                        condicion = reader[2].ToString();
+                        concistencia = reader[3].ToString();
+                        tolerancia = reader[4].ToString();
+                        resp = true;
+                    }else resp = false;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                resp= false;
+            }
+            return resp;
+        }
     }
 }
