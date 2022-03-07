@@ -23,6 +23,7 @@ namespace gt2_ELAB.Vista
         bool insert;
 
         DataTable dtprocesos;
+        //constructor q registra la practica
         public frmEvaluacionResult(DataTable table, int ciclo, int idSecuencia, int idPract, int noEstacion, int numeroAnalista, string fechaIni)
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace gt2_ELAB.Vista
             insert = true;
         }
 
+        //constuctor q modifica config de analisis
         public frmEvaluacionResult(DataTable table, string idConfig, int ciclos)
         {
             InitializeComponent();
@@ -75,6 +77,8 @@ namespace gt2_ELAB.Vista
                 total = destreza + esfuerzo + condicion + concistencia;
                 txtTotal.Text = total.ToString();
             }
+            else
+                MessageBox.Show("Llena todos los campos", "ERROR");
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -92,6 +96,11 @@ namespace gt2_ELAB.Vista
             }    
             else
                 new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
+
+            frmAnalisis analisis = new frmAnalisis();
+            //Invoke(new Action(() => analisis.lbxListaAnalisis));
+            Invoke(new Action(() => analisis.CargaListBox() /* analisis.lbxListaAnalisis.Refresh()*/));
+            Invoke(new Action(() => analisis.lbxListaAnalisis.SelectedIndex = 0));
             Close();
         }
 

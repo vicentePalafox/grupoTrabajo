@@ -22,12 +22,9 @@ namespace gt2_ELAB
         {
             InitializeComponent();
 
-            //Entidad.Secuencia secuencia = new Entidad.Secuencia();
-            //new Funciones.SQL_Secuencia().BuscaSecuencia(idSec, out secuencia);
-
             lblAnalisis.Text = new Funciones.SQL_Practica().NombrePract_X_id(idPrac);
             lblResultados.Text = fecha;
-            dgvMesa1.DataSource = cargaDGV(table, ciclosT); //table;
+            dgvMesa1.DataSource = cargaDGV(table, 1);
             ciclosT = ciclo;
         }
 
@@ -39,36 +36,29 @@ namespace gt2_ELAB
         public DataTable cargaDGV(DataTable table, int ciclo)
         {
             DataTable dt = new DataTable();
-            for (int i = 0; i < ciclo; i++)
-            {
-                dt.Columns.Add($"ciclo{i + 1}").AllowDBNull = true;
-            }
 
             try
             {
-                var query = table.Select("máximo(noOper)");
-                int num_alto = int.Parse(query[0].ToString());
-                int numActual = 0;
+                var num_alto = table.Rows.Cast<DataRow>().Select(row => row.Field<int>("noOper")).Max();
 
-                foreach (DataRow dr in table.Rows)
+                for (int i = 0; i <= num_alto; i++)
                 {
-
-                    for (int i = 0; i < num_alto; i++)
-                    {
-                        DataRow data = dt.NewRow();
-
-                        
-                        data[numActual] = table.Rows[2].ToString();
-                    }
-                    numActual++;
+                    dt.Columns.Add($"op{i + 1}");
+                    dt.Columns[i].AllowDBNull = true;
                 }
 
+                for (int i = 0; i <= ciclo; i++)
+                {
+                    var operaciones = table.AsEnumerable().Where(s => s.Field<int>("cicloT") == i).Select(s => s.Field<string>("tObservado")).ToArray(); //table.Rows.Cast<DataRow>().Select(row => row.).
 
+                        DataRow dr = dt.NewRow();
+                        dt.Rows.Add(operaciones);
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
+                dt = null;
             }
             return dt;
         }

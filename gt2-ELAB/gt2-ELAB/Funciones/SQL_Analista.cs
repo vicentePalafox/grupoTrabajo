@@ -107,7 +107,7 @@ namespace gt2_ELAB.Funciones
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "BuscaTiemposAnalisis";
 
-                    cmd.Parameters.Add("@noAnalista", MySqlDbType.Int32).Value = noAnalista;
+                    cmd.Parameters.Add("@noAnalista1", MySqlDbType.Int32).Value = noAnalista;
                     cmd.Parameters.Add("@idPract", MySqlDbType.Int32).Value = idPract;
                     cmd.Parameters.Add("@escuelaAl", MySqlDbType.VarChar, 255).Value = escuela;
                     cmd.Parameters.Add("@fechaIni", MySqlDbType.VarChar, 255).Value = fechaIni;
@@ -189,7 +189,7 @@ namespace gt2_ELAB.Funciones
                     MySqlCommand command = new MySqlCommand();
                     conn.Open();
                     command.Connection = conn;
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "DeleteAnalista";
 
                     command.Parameters.Add("@idSec", MySqlDbType.Int32);
@@ -373,10 +373,12 @@ namespace gt2_ELAB.Funciones
 
                     command.Parameters.Add("@noOperacion", MySqlDbType.Int32);
                     command.Parameters.Add("@tObs", MySqlDbType.VarChar, 255);
+                    command.Parameters.Add("@ciclo", MySqlDbType.Int32);
                     foreach (DataRow row in dt.Rows)
                     {
                         command.Parameters["@noOperacion"].Value = row[1];
                         command.Parameters["@tObs"].Value = row[2].ToString();
+                        command.Parameters["@ciclo"].Value = row[3];
                         command.ExecuteNonQuery();
                     }
                     result = true;

@@ -61,6 +61,8 @@
             this.panelEst1 = new System.Windows.Forms.Panel();
             this.panelEst2 = new System.Windows.Forms.Panel();
             this.panelEst3 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelEst1.SuspendLayout();
             this.panelEst2.SuspendLayout();
@@ -71,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 72);
+            this.label1.Location = new System.Drawing.Point(37, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 18);
             this.label1.TabIndex = 0;
@@ -121,6 +123,7 @@
             // btnGenerarR
             // 
             this.btnGenerarR.BackColor = System.Drawing.Color.White;
+            this.btnGenerarR.Enabled = false;
             this.btnGenerarR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnGenerarR.FlatAppearance.BorderSize = 3;
             this.btnGenerarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -152,6 +155,7 @@
             // btnEliminarR
             // 
             this.btnEliminarR.BackColor = System.Drawing.Color.White;
+            this.btnEliminarR.Enabled = false;
             this.btnEliminarR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnEliminarR.FlatAppearance.BorderSize = 3;
             this.btnEliminarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -235,6 +239,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(822, 36);
             this.panel1.TabIndex = 13;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label9
             // 
@@ -425,11 +430,33 @@
             this.panelEst3.Size = new System.Drawing.Size(420, 35);
             this.panelEst3.TabIndex = 28;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(40, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 18);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Usuario:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(126, 43);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(26, 18);
+            this.lblUsuario.TabIndex = 30;
+            this.lblUsuario.Text = "***";
+            // 
             // frmAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 531);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.panelEst3);
             this.Controls.Add(this.panelEst2);
             this.Controls.Add(this.panelEst1);
@@ -452,6 +479,7 @@
             this.Name = "frmAnalisis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAnalisis";
+            this.Enter += new System.EventHandler(this.frmAnalisis_Enter);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelEst1.ResumeLayout(false);
@@ -468,7 +496,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbxListaAnalisis;
         private System.Windows.Forms.Button btnNuevaP;
         private System.Windows.Forms.Button btnVisualizarT;
         private System.Windows.Forms.Button btnGenerarR;
@@ -499,5 +526,8 @@
         private System.Windows.Forms.Panel panelEst1;
         private System.Windows.Forms.Panel panelEst2;
         private System.Windows.Forms.Panel panelEst3;
+        private System.Windows.Forms.Label label10;
+        internal System.Windows.Forms.Label lblUsuario;
+        public System.Windows.Forms.ListBox lbxListaAnalisis;
     }
 }

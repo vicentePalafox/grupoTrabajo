@@ -34,13 +34,18 @@ namespace gt2_ELAB.Vista
                 Entidad.Usuario.UsuarioEscuela=escuela;
 
                 frmAnalisis vistaAnalisis = new frmAnalisis();
+                vistaAnalisis.lblUsuario.Text = nombre;
                 Hide();
                 vistaAnalisis.Show();
             }
             else
-            {
                 Console.WriteLine("No existe el usuario");
-            }
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+                btnIniciar.PerformClick();
         }
     }
 }

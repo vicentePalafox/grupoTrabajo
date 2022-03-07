@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using gt2_ELAB.Entidad;
@@ -12,6 +14,14 @@ namespace gt2_ELAB
 {
     public partial class frmEjecucion : Form
     {
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
+
+
         string horaInicio;
         Stopwatch stopwatch = new Stopwatch();
         Stopwatch swTiempoObs = new Stopwatch();
@@ -24,13 +34,13 @@ namespace gt2_ELAB
         int cicloActual = 0, ProcesoActual = 0;
 
         int conteo = 3;
-        int index = 0;
         bool imagenesActivados = false;
 
         double iniciaTiempo;
 
         DataTable DTactividades;
         DataTable DT_tiempos;
+
         public frmEjecucion()
         {
             InitializeComponent();
@@ -39,6 +49,8 @@ namespace gt2_ELAB
         public frmEjecucion(DataTable table, int ciclo, int idSec, int noEstacion, int noAnalista, int idPractica, int pzCola)
         {
             InitializeComponent();
+            panelInicio.BackColor = Color.Firebrick;
+
             horaInicio = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             DTactividades = table;
             idSecuencia = idSec;
@@ -53,6 +65,7 @@ namespace gt2_ELAB
             DT_tiempos.Columns["id"].AutoIncrementStep = 1;
             DT_tiempos.Columns.Add("posicionAct", typeof(int));
             DT_tiempos.Columns.Add("tiempoOBS", typeof(string));
+            DT_tiempos.Columns.Add("cicloA", typeof(int));
 
 
             totalProcesos = DTactividades.Rows.Count;
@@ -68,7 +81,7 @@ namespace gt2_ELAB
 
             new SQL_Analista().InsertaPzCola(idSecuencia, noEstacion, numeroAnalista, pzCola);
 
-            if(noEstacion == 1)
+            if (noEstacion == 1)
             {
                 label7.Visible = false;
                 lblPzCola.Visible = false;
@@ -110,8 +123,15 @@ namespace gt2_ELAB
 
                 if (numero_estacion != 1)
                     tmrPzCola.Enabled = true;
-                conteo = 3;   
+                conteo = 3;
             }
+        }
+
+        private void IniciaTiempoSec()
+        {
+            ProcesoActual = 0;
+            tmrRegresivo.Enabled = true;
+            imagenesActivados = true;
         }
 
         private void btnInicia_Click(object sender, EventArgs e)
@@ -120,14 +140,41 @@ namespace gt2_ELAB
 
             btnInicia.Enabled = false;
             tmrRegresivo.Enabled = true;
-            imagenesActivados = true;  
+            imagenesActivados = true;
+        }
+
+        private void lblCicloAct_TextChanged(object sender, EventArgs e)
+        {
+            if(numero_estacion == 1)
+            {
+                if (lblCicloAct.Text == lblCicloTotal.Text)
+                {
+                    imagenesActivados = false;
+                    swTiempoObs.Stop();
+                    tmrProceso.Stop();
+                    new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);
+                    MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
+
+                    if (backgroundWorker1.IsBusy != true)
+                    {
+                        // Start the asynchronous operation.
+                        backgroundWorker1.RunWorkerAsync();
+                    }
+                }
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void tmrBuscaGrupo_Tick(object sender, EventArgs e)
         {
             try
             {
-                int iniciaT=0;
+                int iniciaT = 0;
                 TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)stopwatch.ElapsedMilliseconds);
                 TimeSpan tsInverso = new TimeSpan(0, 0, 1, 0);
                 TimeSpan result = tsInverso.Subtract(ts);
@@ -135,8 +182,7 @@ namespace gt2_ELAB
                 lblMin.Text = result.Minutes.ToString().Length < 2 ? $"0{result.Minutes.ToString()}" : result.Minutes.ToString();
                 lblseg.Text = result.Seconds.ToString().Length < 2 ? $"0{result.Seconds.ToString()}" : result.Seconds.ToString();
 
-                //if (numeroAnalista != 1 && numero_estacion != 1)
-                    iniciaT = new SQL_Secuencia().buscaIniciaTAnalista1(idSecuencia);
+                iniciaT = new SQL_Secuencia().buscaIniciaTAnalista1(idSecuencia);
 
                 if (lblMin.Text.Equals("00") && lblseg.Text.Equals("00") || iniciaT == 1)
                 {
@@ -153,7 +199,9 @@ namespace gt2_ELAB
 
                     if (ConfirmarGrupo == 3 && numero_estacion == 1)
                     {
-                        btnInicia.Enabled = true;
+                        //btnInicia.Enabled = true;
+                        panelInicio.BackColor = Color.LimeGreen;
+                        IniciaTiempoSec();
                     }
                     else if (ConfirmarGrupo == 3 && numero_estacion != 1)
                     {
@@ -165,7 +213,8 @@ namespace gt2_ELAB
                         else
                         {
                             //comienza la secuencia
-                            btnInicia.Enabled = true;
+                            IniciaTiempoSec();
+                            //btnInicia.Enabled = true;
                         }
                     }
                     else if (ConfirmarGrupo != 3)
@@ -199,7 +248,7 @@ namespace gt2_ELAB
             pzCola = new SQL_Analista().BuscaPZcola(idSecuencia, numero_estacion, numeroAnalista);
             lblPzCola.Text = pzCola.ToString();
 
-            if((lblPzCola.Text == pzcolaIni.ToString()) && (lblCicloAct.Text == lblCicloTotal.Text))
+            if (/*(lblPzCola.Text == pzcolaIni.ToString()) &&*/ (lblCicloAct.Text == lblCicloTotal.Text))
             {
                 //if(pzCola < cicloSec) //pzCola < cicloSec
                 {
@@ -210,16 +259,17 @@ namespace gt2_ELAB
                     new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);
                 }
                 //else if(pzCola == cicloSec && (!imagenesActivados)){
-                tmrPzCola.Enabled = false;
-                MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
-                imagenesActivados = false;
-                swTiempoObs.Stop();
-                tmrProceso.Enabled = false;
+                if(int.Parse(lblPzCola.Text) == pzcolaIni)
+                {
+                    tmrPzCola.Enabled = false;
+                    MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
+                    imagenesActivados = false;
+                    swTiempoObs.Stop();
+                    tmrProceso.Enabled = false;
 
-                muestraTabla();
-
-                if (backgroundWorker1.IsBusy != true)
-                    backgroundWorker1.RunWorkerAsync();
+                    if (backgroundWorker1.IsBusy != true)
+                        backgroundWorker1.RunWorkerAsync();
+                }
             }
 
 
@@ -228,6 +278,7 @@ namespace gt2_ELAB
             {
                 if (tmrProceso.Enabled == false && (lblCicloAct.Text != lblCicloTotal.Text))
                 {
+                    panelInicio.BackColor = Color.LimeGreen;
                     imagenesActivados = true;
                     swTiempoObs.Start();
                     tmrProceso.Enabled = true;
@@ -242,7 +293,7 @@ namespace gt2_ELAB
                 //        imagenesActivados = false;
                 //        swTiempoObs.Stop();
                 //        tmrProceso.Enabled = false;
-                        
+
                 //        new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);  
                 //    }
                 //    //else if(pzCola == cicloSec && (!imagenesActivados)){
@@ -264,20 +315,20 @@ namespace gt2_ELAB
         private void pictureTarea_Click(object sender, EventArgs e)
         {
             int TPmenos = totalProcesos - 1;
-            //cicloSec  totalProcesos
             try
             {
                 if (imagenesActivados)
                 {
                     if (numero_estacion == 1)/////////////////////estacion 1////////////////////////////
                     {
-                        if (cicloActual <= cicloSec)
+                        if (cicloActual < cicloSec)
                         {
                             if (ProcesoActual < TPmenos)
                             {
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
                                 swTiempoObs.Restart();
 
@@ -288,44 +339,48 @@ namespace gt2_ELAB
                             else
                             {
                                 cicloActual++;
+                                lblCicloAct.Text = cicloActual.ToString();
 
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
 
                                 ProcesoActual = 0;
                                 pictureTarea.Image = new SQL_Operacion().byteArrayToImage((byte[])DTactividades.Rows[ProcesoActual][2]);
                                 lblDescripcion.Text = DTactividades.Rows[ProcesoActual][1].ToString();
                                 new SQL_Analista().UpdatePzColaMAS(idSecuencia, numeroAnalista, 2, 1);
+                                
                             }
                         }
                         else
                         {
-                            imagenesActivados = false;
-                            swTiempoObs.Stop();
-                            tmrProceso.Stop();
-                            new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);
-                            MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
+                            //imagenesActivados = false;
+                            //swTiempoObs.Stop();
+                            //tmrProceso.Stop();
+                            //new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);
+                            //MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
 
-                            if (backgroundWorker1.IsBusy != true)
-                            {
-                                // Start the asynchronous operation.
-                                backgroundWorker1.RunWorkerAsync();
-                            }
+                            //if (backgroundWorker1.IsBusy != true)
+                            //{
+                            //    // Start the asynchronous operation.
+                            //    backgroundWorker1.RunWorkerAsync();
+                            //}
                         }
                     }
                     else if (numero_estacion == 2)////////////////////estacion 2//////////////////////////
                     {
                         SecDisponible = int.Parse(lblPzCola.Text);
 
-                        if ((SecDisponible != 0) && (cicloActual < cicloSec)) // (SecDisponible != 0) && (cicloActual <= cicloSec)         cicloActual <= SecDisponible) && (cicloActual <= cicloSec
+                        //if ((SecDisponible != 0) && (cicloActual < cicloSec)) // (SecDisponible != 0) && (cicloActual <= cicloSec)         cicloActual <= SecDisponible) && (cicloActual <= cicloSec
                         {
                             if (ProcesoActual < TPmenos)
                             {
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
                                 swTiempoObs.Restart();
 
@@ -340,11 +395,12 @@ namespace gt2_ELAB
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
 
                                 cicloActual++;
 
-                                lblCicloAct.Text = (cicloActual).ToString();
+                                lblCicloAct.Text = cicloActual.ToString();
                                 ProcesoActual = 0;
                                 pzCola = pzCola - 1;
                                 if (pzCola == 0)
@@ -359,10 +415,6 @@ namespace gt2_ELAB
 
                                 new SQL_Analista().UpdatePzColaMAS(idSecuencia, numeroAnalista, 3, 1);
                             }
-                        }
-                        else
-                        {
-
                         }
 
                         #region no sirve
@@ -414,8 +466,6 @@ namespace gt2_ELAB
                         //    }
                         //}
                         #endregion
-
-
                     }
                     else if (numero_estacion == 3)///////////////////estacion 3///////////////////////////
                     {
@@ -428,6 +478,7 @@ namespace gt2_ELAB
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
                                 swTiempoObs.Restart();
 
@@ -442,10 +493,11 @@ namespace gt2_ELAB
                                 DataRow row = DT_tiempos.NewRow();
                                 row[1] = ProcesoActual;
                                 row[2] = $"{lblTseg.Text}.{lblTmilis.Text}";
+                                row[3] = lblCicloAct.Text;
                                 DT_tiempos.Rows.Add(row);
 
                                 cicloActual++;
-                                
+
                                 lblCicloAct.Text = cicloActual.ToString();
                                 ProcesoActual = 0;
                                 pzCola = pzCola - 1;
@@ -459,10 +511,6 @@ namespace gt2_ELAB
                                 pictureTarea.Image = new SQL_Operacion().byteArrayToImage((byte[])DTactividades.Rows[ProcesoActual][2]);
                                 lblDescripcion.Text = DTactividades.Rows[ProcesoActual][1].ToString();
                             }
-                        }
-                       // else
-                        {
-                            
                         }
                     }
                 }
@@ -486,14 +534,12 @@ namespace gt2_ELAB
                     if (finalizo == 3)
                     {
                         new SQL_Analista().GuardarPractica(DT_tiempos, idSecuencia, numero_estacion, numeroAnalista, horaInicio);
-                        
+
                         Invoke(new Action(() => MessageBox.Show("La sesion ha terminado")));
 
                         frmEvaluacionResult evaluacionResult = new frmEvaluacionResult(DT_tiempos, cicloSec, idSecuencia, idPract, numero_estacion, numeroAnalista, horaInicio);
                         Invoke(new Action(() => evaluacionResult.Show()));
                         Invoke(new Action(() => Close()));
-
-                        //evaluacionResult.Invoke(new Action(() => evaluacionResult.Show()));
                         break;
                     }
                 }
@@ -507,8 +553,6 @@ namespace gt2_ELAB
             tmrRegresivo.Stop();
             tmrPzCola.Stop();
             backgroundWorker1.CancelAsync();
-
-            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e) => Close();
@@ -520,14 +564,6 @@ namespace gt2_ELAB
             tmrRegresivo.Stop();
             tmrPzCola.Stop();
             backgroundWorker1.CancelAsync();
-        }
-
-        public void muestraTabla()
-        {
-            foreach (DataRow item in DT_tiempos.Rows)
-            {
-                Console.WriteLine($"{item[0]} - {item[1]} - {item[2]}");
-            }
         }
     }
 }

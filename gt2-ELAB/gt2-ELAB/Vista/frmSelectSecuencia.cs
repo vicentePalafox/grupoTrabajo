@@ -91,13 +91,13 @@ namespace gt2_ELAB
                         {
                             int pzcola = int.Parse(frmPz.txtPZcola.Text);
                             frmEjecucion vistaEjecucion = new frmEjecucion(table, practica.ciclos, idSec, noEstacion, analista.posicionAnalista, idPractica, pzcola);
-                            vistaEjecucion.ShowDialog();
+                            vistaEjecucion.Show();
                         }
                     }
                     else
                     {
                         frmEjecucion vistaEjecucion = new frmEjecucion(table, practica.ciclos, idSec, noEstacion, analista.posicionAnalista, idPractica, 0);
-                        vistaEjecucion.ShowDialog();
+                        vistaEjecucion.Show();
                     }
                     Close();
                 }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,13 @@ namespace gt2_ELAB.Vista
     {
         string idConfig;
 
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
         public frmAnalisis()
         {
             InitializeComponent();
@@ -25,12 +33,16 @@ namespace gt2_ELAB.Vista
         public void CargaListBox()
         {
             DataTable dt = new DataTable();
-            dt = new Funciones.SQL_Analista().listaAnalisis(Entidad.Usuario.UsuarioName);
+            dt = new Funciones.SQL_Analista().listaAnalisis(Usuario.UsuarioName);
 
+            lbxListaAnalisis.DataSource = null;
 
             lbxListaAnalisis.ValueMember = "id";
             lbxListaAnalisis.DisplayMember = "Practica";
             lbxListaAnalisis.DataSource = dt;
+
+            //lbxListaAnalisis.ClearSelected();
+            //idConfig = "0";
         }
 
         public void ColorEstacionAct(int noEstacion)
@@ -95,6 +107,7 @@ namespace gt2_ELAB.Vista
 
             frmResultados vistaresulados = new frmResultados(dtProcesos,fecha, ciclos, idPrac);
             vistaresulados.Show();
+            //lbxListaAnalisis.ClearSelected(); //CargaListBox();
         }
 
         public string fechaRangoIni(string fecha)
@@ -108,7 +121,7 @@ namespace gt2_ELAB.Vista
                 TimeSpan timeSpan = new TimeSpan(0, 5, 0);
                 time = DateTime.Parse(hora);
 
-                resp = $"{fecha.Substring(0, 11)}{time.Subtract(timeSpan).ToString("hh:mm")}";
+                resp = $"{fecha.Substring(0, 11)}{time.Subtract(timeSpan).ToString("HH:mm")}";
             }
             catch (Exception ex)
             {
@@ -128,7 +141,7 @@ namespace gt2_ELAB.Vista
                 DateTime time = new DateTime();
                 time = DateTime.Parse(hora).AddMinutes(5);
 
-                resp = $"{fecha.Substring(0, 11)}{time.ToString("hh:mm")}";
+                resp = $"{fecha.Substring(0, 11)}{time.ToString("HH:mm")}";
             }
             catch (Exception ex)
             {
@@ -176,20 +189,27 @@ namespace gt2_ELAB.Vista
                         lblTe1.Text = test1;
                         lblTe2.Text = test2;
                         lblTe3.Text = test3;
+
+                        lblTo4.Text = ((decimal.Parse(tobs1) + decimal.Parse(tobs2) + decimal.Parse(tobs3))/3).ToString("N3");
+                        lblTn4.Text = ((decimal.Parse(tnor1) + decimal.Parse(tnor2) + decimal.Parse(tnor3))/3).ToString("N3");
+                        lblTe4.Text = ((decimal.Parse(test1) + decimal.Parse(test2) + decimal.Parse(test3))/3).ToString("N3");
                     }
                     else
                     {
                         lblTo1.Text = "0.0";
                         lblTo2.Text = "0.0";
                         lblTo3.Text = "0.0";
+                        lblTo4.Text = "0.0";
 
                         lblTn1.Text = "0.0";
                         lblTn2.Text = "0.0";
                         lblTn3.Text = "0.0";
+                        lblTn4.Text = "0.0";
 
                         lblTe1.Text = "0.0";
                         lblTe2.Text = "0.0";
                         lblTe3.Text = "0.0";
+                        lblTe4.Text = "0.0";
                     }
                 }
             }
@@ -211,7 +231,21 @@ namespace gt2_ELAB.Vista
             dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Entidad.Usuario.UsuarioName, fecha, noAnalista, noEst);
 
             //DataTable table, string idConfig, int ciclos
-            new frmEvaluacionResult(dtProcesos, idConfig, ciclos).Show();
+            new frmEvaluacionResult(dtProcesos, idConfig, ciclos).ShowDialog();
+            CargaListBox();
+            //lbxListaAnalisis.DataBind; //Refresh();
+            //lbxListaAnalisis.SelectedIndex = 0; //ClearSelected();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void frmAnalisis_Enter(object sender, EventArgs e)
+        {
+            CargaListBox();
         }
     }
 }
