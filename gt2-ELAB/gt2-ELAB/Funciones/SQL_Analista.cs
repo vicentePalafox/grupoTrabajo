@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Data;
 
+using Google.Protobuf.WellKnownTypes;
+
 using MySql.Data.MySqlClient;
 
 namespace gt2_ELAB.Funciones
@@ -15,9 +17,6 @@ namespace gt2_ELAB.Funciones
 
         public DataTable listaAnalisis(string nombre)
         {
-            //SELECT tobs, tnor,test FROM `configanalisis` WHERE noAnalista = 1 AND escuela = 'ACK' AND fecha LIKE '03/03/2022 01%'
-            //SELECT id, CONCAT((SELECT practica.nombrePractica FROM practica WHERE id = 5), ' - ', fecha) FROM configanalisis WHERE usuario ='vic'
-
             DataTable dt = new DataTable();
             try
             {
@@ -153,22 +152,13 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "AltaAnalista";
 
-                    command.Parameters.Add("@username", MySqlDbType.VarChar, 200);
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters.Add("@idEst", MySqlDbType.Int32);
-                    command.Parameters.Add("@posi", MySqlDbType.Int32);
-
-                    command.Parameters["@username"].Value = analista.usuario;
-                    command.Parameters["@idSec"].Value = analista.idSecuencia;
-                    command.Parameters["@idEst"].Value = analista.idEstacion;
-                    command.Parameters["@posi"].Value = analista.posicionAnalista;
+                    command.Parameters.Add("@username", MySqlDbType.VarChar, 200).Value = analista.usuario;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = analista.idSecuencia;
+                    command.Parameters.Add("@idEst", MySqlDbType.Int32).Value = analista.idEstacion;
+                    command.Parameters.Add("@posi", MySqlDbType.Int32).Value = analista.posicionAnalista;
 
                     int alta = command.ExecuteNonQuery();
-
-                    if (alta == 1)
-                        result = true;
-                    else
-                        result = false;
+                    result = alta == 1;
                 }
             }
             catch (Exception ex)
@@ -192,17 +182,11 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "DeleteAnalista";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters.Add("@posi", MySqlDbType.Int32);
-
-                    command.Parameters["@idSec"].Value = idSec;
-                    command.Parameters["@posi"].Value = posiAnalista;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    command.Parameters.Add("@posi", MySqlDbType.Int32).Value = posiAnalista;
 
                     int exito = command.ExecuteNonQuery();
-                    if (exito == 1)
-                        result = true;
-                    else
-                        result = false;
+                    result = exito == 1;
                 }
             }
             catch (Exception ex)
@@ -222,7 +206,7 @@ namespace gt2_ELAB.Funciones
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "UpdatePzColaMESOS";
 
                     cmd.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
@@ -248,7 +232,7 @@ namespace gt2_ELAB.Funciones
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "UpdatePzColaMAS";
 
                     cmd.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
@@ -274,7 +258,7 @@ namespace gt2_ELAB.Funciones
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "CargarPZCola";
 
                     cmd.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
@@ -301,12 +285,10 @@ namespace gt2_ELAB.Funciones
                     connection.Open();
                     MySqlCommand command = new MySqlCommand();
                     command.Connection = connection;
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "BuscaPzCola";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.VarChar, 255);
-                    command.Parameters["@idSec"].Value = idSec;
-
+                    command.Parameters.Add("@idSec", MySqlDbType.VarChar, 255).Value = idSec;
                     command.Parameters.Add("@posiEsta", MySqlDbType.Int32).Value = posiEstacion;
                     command.Parameters.Add("@posiAnalista", MySqlDbType.Int32).Value = posiAnalista;
 
@@ -331,16 +313,12 @@ namespace gt2_ELAB.Funciones
                     MySqlCommand command = new MySqlCommand();
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "AnalistaFinalizo";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters.Add("@posi", MySqlDbType.Int32);
-                    command.Parameters.Add("@posiEst", MySqlDbType.Int32);
-
-                    command.Parameters["@idSec"].Value = idSec;
-                    command.Parameters["@posi"].Value = posiAnalista;
-                    command.Parameters["@posiEst"].Value = posiEstacion;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    command.Parameters.Add("@posi", MySqlDbType.Int32).Value = posiAnalista;
+                    command.Parameters.Add("@posiEst", MySqlDbType.Int32).Value = posiEstacion;
 
                     command.ExecuteNonQuery();
                 }

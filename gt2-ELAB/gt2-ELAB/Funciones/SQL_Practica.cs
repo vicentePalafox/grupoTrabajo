@@ -31,11 +31,8 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "BuscaPractica";
 
-                    command.Parameters.Add("@nomPractica", MySqlDbType.VarChar, 255);
-                    command.Parameters.Add("@escuela", MySqlDbType.VarChar, 255);
-
-                    command.Parameters["@nomPractica"].Value = nombre;
-                    command.Parameters["@escuela"].Value = Usuario.UsuarioEscuela;
+                    command.Parameters.Add("@nomPractica", MySqlDbType.VarChar, 255).Value = nombre;
+                    command.Parameters.Add("@escuela", MySqlDbType.VarChar, 255).Value = Usuario.UsuarioEscuela;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -84,7 +81,7 @@ namespace gt2_ELAB.Funciones
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                result =string.Empty;
+                result = string.Empty;
             }
             return result;
         }
@@ -104,8 +101,7 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "ListaPractica";
 
-                    command.Parameters.Add("@escuelaUs", MySqlDbType.VarChar, 255);
-                    command.Parameters["@escuelaUs"].Value = Entidad.Usuario.UsuarioEscuela;
+                    command.Parameters.Add("@escuelaUs", MySqlDbType.VarChar, 255).Value = Usuario.UsuarioEscuela;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     result.Load(reader);
@@ -126,9 +122,10 @@ namespace gt2_ELAB.Funciones
             {
                 using(var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["SQL_Conection"].ConnectionString))
                 {
+                    conn.Open();
                     MySqlCommand command = new MySqlCommand();
                     command.Connection = conn;
-                    conn.Open();
+                    
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "estatusEstacionAnterior";

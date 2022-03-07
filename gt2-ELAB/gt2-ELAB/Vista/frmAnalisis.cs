@@ -17,11 +17,10 @@ namespace gt2_ELAB.Vista
     {
         string idConfig;
 
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
         public frmAnalisis()
@@ -33,6 +32,7 @@ namespace gt2_ELAB.Vista
         public void CargaListBox()
         {
             DataTable dt = new DataTable();
+            dt.Clear();
             dt = new Funciones.SQL_Analista().listaAnalisis(Usuario.UsuarioName);
 
             lbxListaAnalisis.DataSource = null;
@@ -40,45 +40,42 @@ namespace gt2_ELAB.Vista
             lbxListaAnalisis.ValueMember = "id";
             lbxListaAnalisis.DisplayMember = "Practica";
             lbxListaAnalisis.DataSource = dt;
-
-            //lbxListaAnalisis.ClearSelected();
-            //idConfig = "0";
         }
 
         public void ColorEstacionAct(int noEstacion)
         {
-            if (noEstacion == 1)
+            switch (noEstacion)
             {
-                panelEst1.BackColor = Color.IndianRed;
-                panelEst1.ForeColor = Color.White;
+                case 1:
+                    panelEst1.BackColor = Color.IndianRed;
+                    panelEst1.ForeColor = Color.White;
 
-                panelEst2.BackColor = SystemColors.Control;
-                panelEst2.ForeColor = SystemColors.ControlText;
+                    panelEst2.BackColor = SystemColors.Control;
+                    panelEst2.ForeColor = SystemColors.ControlText;
 
-                panelEst3.BackColor = SystemColors.Control;
-                panelEst3.ForeColor = SystemColors.ControlText;
-            }
-            else if (noEstacion == 2)
-            {
-                panelEst1.BackColor = SystemColors.Control;
-                panelEst1.ForeColor = SystemColors.ControlText;
+                    panelEst3.BackColor = SystemColors.Control;
+                    panelEst3.ForeColor = SystemColors.ControlText;
+                    break;
+                case 2:
+                    panelEst1.BackColor = SystemColors.Control;
+                    panelEst1.ForeColor = SystemColors.ControlText;
 
-                panelEst2.BackColor = Color.IndianRed;
-                panelEst2.ForeColor = Color.White;
+                    panelEst2.BackColor = Color.IndianRed;
+                    panelEst2.ForeColor = Color.White;
 
-                panelEst3.BackColor = SystemColors.Control;
-                panelEst3.ForeColor = SystemColors.ControlText;
-            }
-            else if (noEstacion == 3)
-            {
-                panelEst1.BackColor = SystemColors.Control;
-                panelEst1.ForeColor = SystemColors.ControlText;
+                    panelEst3.BackColor = SystemColors.Control;
+                    panelEst3.ForeColor = SystemColors.ControlText;
+                    break;
+                case 3:
+                    panelEst1.BackColor = SystemColors.Control;
+                    panelEst1.ForeColor = SystemColors.ControlText;
 
-                panelEst2.BackColor = SystemColors.Control;
-                panelEst2.ForeColor = SystemColors.ControlText;
+                    panelEst2.BackColor = SystemColors.Control;
+                    panelEst2.ForeColor = SystemColors.ControlText;
 
-                panelEst3.BackColor = Color.IndianRed;
-                panelEst3.ForeColor = Color.White;
+                    panelEst3.BackColor = Color.IndianRed;
+                    panelEst3.ForeColor = Color.White;
+                    break;
             }
         }
 
@@ -92,22 +89,16 @@ namespace gt2_ELAB.Vista
 
         private void btnVisualizarT_Click(object sender, EventArgs e)
         {
-            int idPrac;
-            int noAnalista;
-            string escuela;
-            int noEst;
-            string fecha;
-            int ciclos;
+            int idPrac, noAnalista, noEst, ciclos;
+            string escuela, fecha;
 
-            bool resp = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+            _ = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
             DataTable dtProcesos = new DataTable();
-            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Entidad.Usuario.UsuarioName, fecha, noAnalista, noEst);
+            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Usuario.UsuarioName, fecha, noAnalista, noEst);
             
-
             frmResultados vistaresulados = new frmResultados(dtProcesos,fecha, ciclos, idPrac);
             vistaresulados.Show();
-            //lbxListaAnalisis.ClearSelected(); //CargaListBox();
         }
 
         public string fechaRangoIni(string fecha)
@@ -120,7 +111,6 @@ namespace gt2_ELAB.Vista
                 DateTime time = new DateTime();
                 TimeSpan timeSpan = new TimeSpan(0, 5, 0);
                 time = DateTime.Parse(hora);
-
                 resp = $"{fecha.Substring(0, 11)}{time.Subtract(timeSpan).ToString("HH:mm")}";
             }
             catch (Exception ex)
@@ -140,7 +130,6 @@ namespace gt2_ELAB.Vista
 
                 DateTime time = new DateTime();
                 time = DateTime.Parse(hora).AddMinutes(5);
-
                 resp = $"{fecha.Substring(0, 11)}{time.ToString("HH:mm")}";
             }
             catch (Exception ex)
@@ -159,14 +148,9 @@ namespace gt2_ELAB.Vista
                 int idConf;
                 if (int.TryParse(idConfig, out idConf))
                 {
-                    int idPrac;
-                    int noAnalista;
-                    string escuela;
-                    int noEst;
-                    string fecha;
-                    int ciclos;
-
-                    bool resp = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+                    int idPrac, noAnalista, noEst, ciclos;
+                    string escuela, fecha;
+                    _ = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
                     string fechaIni = fechaRangoIni(fecha);
                     string fechaFin = fechaRangoFin(fecha);
@@ -218,29 +202,22 @@ namespace gt2_ELAB.Vista
 
         private void btnModificarR_Click(object sender, EventArgs e)
         {
-            int idPrac;
-            int noAnalista;
-            string escuela;
-            int noEst;
-            string fecha;
-            int ciclos;
+            int idPrac, noAnalista, noEst, ciclos;
+            string escuela, fecha;
 
-            bool resp = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+            _ = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
             DataTable dtProcesos = new DataTable();
-            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Entidad.Usuario.UsuarioName, fecha, noAnalista, noEst);
+            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Usuario.UsuarioName, fecha, noAnalista, noEst);
 
-            //DataTable table, string idConfig, int ciclos
             new frmEvaluacionResult(dtProcesos, idConfig, ciclos).ShowDialog();
             CargaListBox();
-            //lbxListaAnalisis.DataBind; //Refresh();
-            //lbxListaAnalisis.SelectedIndex = 0; //ClearSelected();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
         private void frmAnalisis_Enter(object sender, EventArgs e)

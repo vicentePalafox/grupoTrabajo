@@ -28,11 +28,8 @@ namespace gt2_ELAB.Funciones
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "ListaOperacion";
-                    command.Parameters.Add("@mesa", MySqlDbType.Int32);
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    
-                    command.Parameters["@mesa"].Value=idMesa;
-                    command.Parameters["@idSec"].Value = idSec;
+                    command.Parameters.Add("@mesa", MySqlDbType.Int32).Value = idMesa;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     result.Load(reader);

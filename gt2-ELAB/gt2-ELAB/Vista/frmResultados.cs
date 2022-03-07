@@ -24,8 +24,7 @@ namespace gt2_ELAB
 
             lblAnalisis.Text = new Funciones.SQL_Practica().NombrePract_X_id(idPrac);
             lblResultados.Text = fecha;
-            dgvMesa1.DataSource = cargaDGV(table, 1);
-            ciclosT = ciclo;
+            dgvMesa1.DataSource = cargaDGV(table, ciclo);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -49,7 +48,7 @@ namespace gt2_ELAB
 
                 for (int i = 0; i <= ciclo; i++)
                 {
-                    var operaciones = table.AsEnumerable().Where(s => s.Field<int>("cicloT") == i).Select(s => s.Field<string>("tObservado")).ToArray(); //table.Rows.Cast<DataRow>().Select(row => row.).
+                    string[] operaciones = table.AsEnumerable().Where(s => s.Field<int>("cicloT") == i).Select(s => s.Field<string>("tObservado")).ToArray();
 
                         DataRow dr = dt.NewRow();
                         dt.Rows.Add(operaciones);

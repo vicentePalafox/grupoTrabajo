@@ -32,8 +32,7 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "ListaEstacion";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters["@idSec"].Value = idSec;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     result.Load(reader);
@@ -61,10 +60,8 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "ObtenerIdEstacion_X_Nombre";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters.Add("@posi", MySqlDbType.VarChar,255);
-                    command.Parameters["@idSec"].Value = idSec;
-                    command.Parameters["@posi"].Value = posicionEstacion;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
+                    command.Parameters.Add("@posi", MySqlDbType.VarChar,255).Value = posicionEstacion;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())

@@ -47,7 +47,6 @@ namespace gt2_ELAB.Vista
             ciclo = ciclos;
 
             CargarCBX();
-
             insert = false;
         }
 
@@ -99,7 +98,7 @@ namespace gt2_ELAB.Vista
 
             frmAnalisis analisis = new frmAnalisis();
             //Invoke(new Action(() => analisis.lbxListaAnalisis));
-            Invoke(new Action(() => analisis.CargaListBox() /* analisis.lbxListaAnalisis.Refresh()*/));
+            Invoke(new MethodInvoker(() => analisis.CargaListBox()));
             Invoke(new Action(() => analisis.lbxListaAnalisis.SelectedIndex = 0));
             Close();
         }
@@ -116,7 +115,7 @@ namespace gt2_ELAB.Vista
             {
                 foreach (DataRow item in table.Rows)
                 {
-                    suma += Decimal.Parse(item[2].ToString());
+                    suma += decimal.Parse(item[2].ToString());
                 }
                 decimal tObs = suma / ciclo;
 
@@ -134,10 +133,10 @@ namespace gt2_ELAB.Vista
         {
             //calcula suma de factores de desempeño
             decimal result = 0;
-            destreza = Decimal.Parse(cbxDestreza.SelectedItem.ToString());
-            esfuerzo = Decimal.Parse(cbxEsfuerzo.SelectedItem.ToString());
-            condicion = Decimal.Parse(cbxCondiciones.SelectedItem.ToString());
-            concistencia = Decimal.Parse(cbxConcistencia.SelectedItem.ToString());
+            destreza = decimal.Parse(cbxDestreza.SelectedItem.ToString());
+            esfuerzo = decimal.Parse(cbxEsfuerzo.SelectedItem.ToString());
+            condicion = decimal.Parse(cbxCondiciones.SelectedItem.ToString());
+            concistencia = decimal.Parse(cbxConcistencia.SelectedItem.ToString());
 
             result = decimal.Parse(((destreza + esfuerzo + condicion + concistencia) + 1).ToString("N3"));
             return result;

@@ -31,8 +31,7 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "Id_Secuencias";
 
-                    command.Parameters.Add("@idPrac", MySqlDbType.Int32);
-                    command.Parameters["@idPrac"].Value = idPrac;
+                    command.Parameters.Add("@idPrac", MySqlDbType.Int32).Value = idPrac;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
@@ -65,8 +64,7 @@ namespace gt2_ELAB.Funciones
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "BuscaSecuencia";
 
-                    command.Parameters.Add("@idSec", MySqlDbType.Int32);
-                    command.Parameters["@idSec"].Value=idSec;
+                    command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
 
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
@@ -132,12 +130,6 @@ namespace gt2_ELAB.Funciones
 
                     command.Parameters.Add("@idSec", MySqlDbType.Int32).Value = idSec;
                     result = Convert.ToInt32(command.ExecuteScalar());
-
-                    //MySqlDataReader reader = command.ExecuteReader();
-                    //if (reader.Read())
-                    //    result = reader.GetInt32(0);
-                    //else
-                    //    result = 0;
                 }
             }
             catch (Exception ex)
