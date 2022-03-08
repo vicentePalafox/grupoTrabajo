@@ -62,12 +62,14 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -112,6 +114,8 @@
     </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -138,12 +142,25 @@
     <Compile Include="Entidad\Secuencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />
     <Compile Include="Funciones\SQL_Analista.cs" />
+    <Compile Include="Funciones\SQL_CRanalista.cs" />
     <Compile Include="Funciones\SQL_Estacion.cs" />
     <Compile Include="Vista\CRAnalisis.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRAnalisis.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vista\frmCargaReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\frmCargaReporte.Designer.cs">
+      <DependentUpon>frmCargaReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\frmCRanalista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\frmCRanalista.Designer.cs">
+      <DependentUpon>frmCRanalista.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\frmPzCola.cs">
       <SubType>Form</SubType>
@@ -199,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\frmAnalisis.resx">
       <DependentUpon>frmAnalisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\frmCargaReporte.resx">
+      <DependentUpon>frmCargaReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\frmCRanalista.resx">
+      <DependentUpon>frmCRanalista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\frmEjecucion.resx">
       <DependentUpon>frmEjecucion.cs</DependentUpon>

@@ -14,8 +14,6 @@ C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmEjecucio
 C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmSecuencias.resources
 C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmNuevaPractica.resources
 C:\Users\vpala\source\repos\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmNuevaSecuencia.resources
-C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.AssemblyReference.cache
-C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.SuggestedBindingRedirects.cache
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmEjecucion.resources
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmLogin.resources
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmSelectSecuencia.resources
@@ -124,3 +122,8 @@ C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.CopyComplete
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.exe
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.pdb
+C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\FlashControlV71.dll
+C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\ShockwaveFlashObjects.dll
+C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csprojAssemblyReference.cache
+C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmCRanalista.resources

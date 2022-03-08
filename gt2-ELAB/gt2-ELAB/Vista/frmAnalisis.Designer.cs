@@ -135,6 +135,7 @@
             this.btnGenerarR.TabIndex = 4;
             this.btnGenerarR.Text = "Generar Reporte";
             this.btnGenerarR.UseVisualStyleBackColor = false;
+            this.btnGenerarR.Click += new System.EventHandler(this.btnGenerarR_Click);
             // 
             // btnModificarR
             // 

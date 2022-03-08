@@ -224,5 +224,31 @@ namespace gt2_ELAB.Vista
         {
             CargaListBox();
         }
+
+        private void btnGenerarR_Click(object sender, EventArgs e)
+        {
+            int idPrac, noAnalista, noEst, ciclos;
+            string escuela, fecha;
+
+            _ = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
+
+            DataTable dtProcesos = new DataTable();
+            dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Usuario.UsuarioName, fecha, noAnalista, noEst);
+
+
+            frmCargaReporte cargaReporte = new frmCargaReporte();
+            DialogResult dialog = cargaReporte.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                string destreza, esfuerzo, condicion, concistencia, tolerancia;
+                string profesor = cargaReporte.txtProfesor.Text;
+                string materia = cargaReporte.txtMateria.Text;
+
+                new Funciones.SQL_Analista().obtenerConfig(int.Parse(idConfig), out destreza, out esfuerzo, out condicion, out concistencia, out tolerancia);
+
+
+
+            }
+        }
     }
 }
