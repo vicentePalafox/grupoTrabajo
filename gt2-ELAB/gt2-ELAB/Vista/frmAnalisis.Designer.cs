@@ -63,6 +63,7 @@
             this.panelEst3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnTotal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelEst1.SuspendLayout();
             this.panelEst2.SuspendLayout();
@@ -451,11 +452,29 @@
             this.lblUsuario.TabIndex = 30;
             this.lblUsuario.Text = "***";
             // 
+            // btnTotal
+            // 
+            this.btnTotal.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTotal.BackgroundImage = global::gt2_ELAB.Properties.Resources.sincronizar;
+            this.btnTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTotal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
+            this.btnTotal.FlatAppearance.BorderSize = 0;
+            this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotal.ForeColor = System.Drawing.Color.Black;
+            this.btnTotal.Location = new System.Drawing.Point(301, 329);
+            this.btnTotal.Name = "btnTotal";
+            this.btnTotal.Size = new System.Drawing.Size(29, 30);
+            this.btnTotal.TabIndex = 31;
+            this.btnTotal.UseVisualStyleBackColor = false;
+            this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click_1);
+            // 
             // frmAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 531);
+            this.Controls.Add(this.btnTotal);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panelEst3);
@@ -530,5 +549,6 @@
         private System.Windows.Forms.Label label10;
         internal System.Windows.Forms.Label lblUsuario;
         public System.Windows.Forms.ListBox lbxListaAnalisis;
+        private System.Windows.Forms.Button btnTotal;
     }
 }

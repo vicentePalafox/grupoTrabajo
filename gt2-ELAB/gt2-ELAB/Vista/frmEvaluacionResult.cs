@@ -97,7 +97,8 @@ namespace gt2_ELAB.Vista
                 new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
 
             frmAnalisis analisis = new frmAnalisis();
-            //Invoke(new Action(() => analisis.lbxListaAnalisis));
+            
+            Invoke(new Action(() => analisis.lbxListaAnalisis.DataSource = null));
             Invoke(new MethodInvoker(() => analisis.CargaListBox()));
             Invoke(new Action(() => analisis.lbxListaAnalisis.SelectedIndex = 0));
             Close();

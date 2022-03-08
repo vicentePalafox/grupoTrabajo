@@ -107,8 +107,6 @@ C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\System.Memory.xml
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\System.Numerics.Vectors.xml
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.AssemblyReference.cache
-C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.SuggestedBindingRedirects.cache
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmAnalisis.resources
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.frmEjecucion.resources
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmEvaluacionResult.resources
@@ -127,3 +125,8 @@ C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\ShockwaveFlashObjects.dll
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csprojAssemblyReference.cache
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmCRanalista.resources
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\ShockwaveFlashObjects.dll
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\stdole.dll
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmCargaReporte.resources
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmCRanalista.resources
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.AssemblyReference.cache
