@@ -12,7 +12,6 @@ namespace gt2_ELAB
 {
     public partial class frmResultados : Form
     {
-        int ciclosT;
         public frmResultados()
         {
             InitializeComponent();
@@ -27,10 +26,7 @@ namespace gt2_ELAB
             dgvMesa1.DataSource = cargaDGV(table, ciclo);
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void btnCerrar_Click(object sender, EventArgs e) => Close();
 
         public DataTable cargaDGV(DataTable table, int ciclo)
         {
@@ -42,7 +38,7 @@ namespace gt2_ELAB
 
                 for (int i = 0; i <= num_alto; i++)
                 {
-                    dt.Columns.Add($"op{i + 1}");
+                    dt.Columns.Add($"operacion: {i + 1}");
                     dt.Columns[i].AllowDBNull = true;
                 }
 

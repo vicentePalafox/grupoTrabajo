@@ -251,14 +251,6 @@ namespace gt2_ELAB.Vista
             }
         }
 
-        private void btnTotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTotal_Click_1(object sender, EventArgs e)
-        {
-            CargaListBox();
-        }
+        private void btnTotal_Click_1(object sender, EventArgs e) => CargaListBox();
     }
 }

@@ -124,7 +124,6 @@
             // btnGenerarR
             // 
             this.btnGenerarR.BackColor = System.Drawing.Color.White;
-            this.btnGenerarR.Enabled = false;
             this.btnGenerarR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnGenerarR.FlatAppearance.BorderSize = 3;
             this.btnGenerarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -169,6 +168,7 @@
             this.btnEliminarR.TabIndex = 6;
             this.btnEliminarR.Text = "Eliminar Resultados";
             this.btnEliminarR.UseVisualStyleBackColor = false;
+            this.btnEliminarR.Visible = false;
             // 
             // label2
             // 

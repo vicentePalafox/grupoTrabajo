@@ -138,6 +138,7 @@
     <Compile Include="Entidad\Estacion.cs" />
     <Compile Include="Entidad\Operacion.cs" />
     <Compile Include="Entidad\Practica.cs" />
+    <Compile Include="Entidad\Reporte.cs" />
     <Compile Include="Entidad\Resultado.cs" />
     <Compile Include="Entidad\Secuencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />

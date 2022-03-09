@@ -31,9 +31,7 @@ namespace gt2_ELAB.Vista
                 Close();
             }
             else
-            {
                 MessageBox.Show("Comprobar campos vacios", "ERROR");
-            }
         }
     }
 }

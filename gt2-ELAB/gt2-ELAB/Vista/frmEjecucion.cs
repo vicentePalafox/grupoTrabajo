@@ -20,8 +20,6 @@ namespace gt2_ELAB
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
-
-
         string horaInicio;
         Stopwatch stopwatch = new Stopwatch();
         Stopwatch swTiempoObs = new Stopwatch();
@@ -35,8 +33,6 @@ namespace gt2_ELAB
 
         int conteo = 3;
         bool imagenesActivados = false;
-
-        double iniciaTiempo;
 
         DataTable DTactividades;
         DataTable DT_tiempos;
@@ -248,7 +244,7 @@ namespace gt2_ELAB
             pzCola = new SQL_Analista().BuscaPZcola(idSecuencia, numero_estacion, numeroAnalista);
             lblPzCola.Text = pzCola.ToString();
 
-            if (/*(lblPzCola.Text == pzcolaIni.ToString()) &&*/ (lblCicloAct.Text == lblCicloTotal.Text))
+            if (lblCicloAct.Text == lblCicloTotal.Text)
             {
                 //if(pzCola < cicloSec) //pzCola < cicloSec
                 {

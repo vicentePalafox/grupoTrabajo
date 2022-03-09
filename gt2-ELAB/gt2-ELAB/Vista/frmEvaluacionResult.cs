@@ -82,26 +82,30 @@ namespace gt2_ELAB.Vista
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            decimal tObs = sumarTiempoObs(dtprocesos, ciclo);
-            decimal evalDF = EvalDF();
-            decimal tNor = EvalTnor(evalDF, tObs);
-            decimal tEst = EvalTest(tNor);
-
-            //inserta los valores
-            if (insert)
+            if (!cbxConcistencia.Text.Equals("") && !cbxCondiciones.Text.Equals("") && !cbxDestreza.Text.Equals("") && !cbxEsfuerzo.Text.Equals("") && !cbxToleranciaS.Text.Equals(""))
             {
-                new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
-                new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec,  noAnalista, noEstacion);
-            }    
-            else
-                new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
+                decimal tObs = sumarTiempoObs(dtprocesos, ciclo);
+                decimal evalDF = EvalDF();
+                decimal tNor = EvalTnor(evalDF, tObs);
+                decimal tEst = EvalTest(tNor);
 
-            frmAnalisis analisis = new frmAnalisis();
-            
-            Invoke(new Action(() => analisis.lbxListaAnalisis.DataSource = null));
-            Invoke(new MethodInvoker(() => analisis.CargaListBox()));
-            Invoke(new Action(() => analisis.lbxListaAnalisis.SelectedIndex = 0));
-            Close();
+                //inserta los valores
+                if (insert)
+                {
+                    new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
+                    new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec, noAnalista, noEstacion);
+                }
+                else
+                    new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
+                frmAnalisis analisis = new frmAnalisis();
+
+                Invoke(new Action(() => analisis.lbxListaAnalisis.DataSource = null));
+                Invoke(new MethodInvoker(() => analisis.CargaListBox()));
+                Invoke(new Action(() => analisis.lbxListaAnalisis.SelectedIndex = 0));
+                Close();
+            }
+            else
+                MessageBox.Show("Llena todos los campos", "ERROR"); 
         }
 
         private void btnCerrar_Click(object sender, EventArgs e) => Close();
