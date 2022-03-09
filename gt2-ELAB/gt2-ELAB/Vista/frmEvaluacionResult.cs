@@ -36,6 +36,13 @@ namespace gt2_ELAB.Vista
             this.fechaIni = fechaIni;
             
             insert = true;
+
+            cbxConcistencia.Text = "0";
+            cbxCondiciones.Text = "0";
+            cbxDestreza.Text = "0";
+            cbxEsfuerzo.Text = "0";
+            cbxToleranciaS.Text = "0";
+
         }
 
         //constuctor q modifica config de analisis

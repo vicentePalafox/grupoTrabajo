@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnalisis));
             this.label1 = new System.Windows.Forms.Label();
             this.lbxListaAnalisis = new System.Windows.Forms.ListBox();
@@ -64,6 +65,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnTotal = new System.Windows.Forms.Button();
+            this.timerActualiza = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panelEst1.SuspendLayout();
             this.panelEst2.SuspendLayout();
@@ -93,6 +95,7 @@
             // 
             // btnNuevaP
             // 
+            this.btnNuevaP.AccessibleDescription = "";
             this.btnNuevaP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
             this.btnNuevaP.FlatAppearance.BorderSize = 0;
             this.btnNuevaP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,9 +132,9 @@
             this.btnGenerarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerarR.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarR.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerarR.Location = new System.Drawing.Point(339, 378);
+            this.btnGenerarR.Location = new System.Drawing.Point(188, 452);
             this.btnGenerarR.Name = "btnGenerarR";
-            this.btnGenerarR.Size = new System.Drawing.Size(126, 57);
+            this.btnGenerarR.Size = new System.Drawing.Size(129, 57);
             this.btnGenerarR.TabIndex = 4;
             this.btnGenerarR.Text = "Generar Reporte";
             this.btnGenerarR.UseVisualStyleBackColor = false;
@@ -162,7 +165,7 @@
             this.btnEliminarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarR.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarR.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarR.Location = new System.Drawing.Point(188, 452);
+            this.btnEliminarR.Location = new System.Drawing.Point(335, 452);
             this.btnEliminarR.Name = "btnEliminarR";
             this.btnEliminarR.Size = new System.Drawing.Size(129, 57);
             this.btnEliminarR.TabIndex = 6;
@@ -204,7 +207,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(492, 70);
+            this.label5.Location = new System.Drawing.Point(552, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 36);
             this.label5.TabIndex = 10;
@@ -214,7 +217,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(611, 70);
+            this.label6.Location = new System.Drawing.Point(671, 70);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 36);
             this.label6.TabIndex = 11;
@@ -224,7 +227,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(702, 70);
+            this.label7.Location = new System.Drawing.Point(762, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 36);
             this.label7.TabIndex = 12;
@@ -239,7 +242,7 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(822, 36);
+            this.panel1.Size = new System.Drawing.Size(920, 36);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -261,7 +264,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(777, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(875, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(45, 36);
             this.btnCerrar.TabIndex = 0;
@@ -362,7 +365,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(346, 296);
+            this.label8.Location = new System.Drawing.Point(406, 296);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(121, 18);
             this.label8.TabIndex = 23;
@@ -372,7 +375,7 @@
             // 
             this.lblTo4.AutoSize = true;
             this.lblTo4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo4.Location = new System.Drawing.Point(513, 296);
+            this.lblTo4.Location = new System.Drawing.Point(573, 296);
             this.lblTo4.Name = "lblTo4";
             this.lblTo4.Size = new System.Drawing.Size(30, 18);
             this.lblTo4.TabIndex = 24;
@@ -382,7 +385,7 @@
             // 
             this.lblTn4.AutoSize = true;
             this.lblTn4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTn4.Location = new System.Drawing.Point(622, 296);
+            this.lblTn4.Location = new System.Drawing.Point(682, 296);
             this.lblTn4.Name = "lblTn4";
             this.lblTn4.Size = new System.Drawing.Size(30, 18);
             this.lblTn4.TabIndex = 25;
@@ -392,7 +395,7 @@
             // 
             this.lblTe4.AutoSize = true;
             this.lblTe4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTe4.Location = new System.Drawing.Point(719, 296);
+            this.lblTe4.Location = new System.Drawing.Point(779, 296);
             this.lblTe4.Name = "lblTe4";
             this.lblTe4.Size = new System.Drawing.Size(30, 18);
             this.lblTe4.TabIndex = 26;
@@ -404,7 +407,7 @@
             this.panelEst1.Controls.Add(this.lblTo1);
             this.panelEst1.Controls.Add(this.lblTn1);
             this.panelEst1.Controls.Add(this.lblTe1);
-            this.panelEst1.Location = new System.Drawing.Point(368, 121);
+            this.panelEst1.Location = new System.Drawing.Point(428, 121);
             this.panelEst1.Name = "panelEst1";
             this.panelEst1.Size = new System.Drawing.Size(420, 35);
             this.panelEst1.TabIndex = 27;
@@ -415,7 +418,7 @@
             this.panelEst2.Controls.Add(this.label3);
             this.panelEst2.Controls.Add(this.lblTn2);
             this.panelEst2.Controls.Add(this.lblTe2);
-            this.panelEst2.Location = new System.Drawing.Point(368, 178);
+            this.panelEst2.Location = new System.Drawing.Point(428, 178);
             this.panelEst2.Name = "panelEst2";
             this.panelEst2.Size = new System.Drawing.Size(420, 35);
             this.panelEst2.TabIndex = 28;
@@ -427,7 +430,7 @@
             this.panelEst3.Controls.Add(this.label4);
             this.panelEst3.Controls.Add(this.lblTo3);
             this.panelEst3.Controls.Add(this.lblTn3);
-            this.panelEst3.Location = new System.Drawing.Point(368, 239);
+            this.panelEst3.Location = new System.Drawing.Point(428, 239);
             this.panelEst3.Name = "panelEst3";
             this.panelEst3.Size = new System.Drawing.Size(420, 35);
             this.panelEst3.TabIndex = 28;
@@ -462,9 +465,9 @@
             this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
-            this.btnTotal.Location = new System.Drawing.Point(301, 329);
+            this.btnTotal.Location = new System.Drawing.Point(321, 319);
             this.btnTotal.Name = "btnTotal";
-            this.btnTotal.Size = new System.Drawing.Size(29, 30);
+            this.btnTotal.Size = new System.Drawing.Size(53, 43);
             this.btnTotal.TabIndex = 31;
             this.btnTotal.UseVisualStyleBackColor = false;
             this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click_1);
@@ -473,7 +476,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 531);
+            this.ClientSize = new System.Drawing.Size(920, 538);
             this.Controls.Add(this.btnTotal);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label10);
@@ -550,5 +553,6 @@
         internal System.Windows.Forms.Label lblUsuario;
         public System.Windows.Forms.ListBox lbxListaAnalisis;
         private System.Windows.Forms.Button btnTotal;
+        public System.Windows.Forms.Timer timerActualiza;
     }
 }

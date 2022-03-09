@@ -1,4 +1,6 @@
-﻿using System;
+﻿using gt2_ELAB.Entidad;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,44 +14,43 @@ namespace gt2_ELAB.Vista
 {
     public partial class frmCRanalista : Form
     {
-        string profesor, materia;
+        Reporte info = new Reporte();
         CRAnalisis reporte;
-        public frmCRanalista(string profesor, string materia)
+        public frmCRanalista(Reporte Datoreporte)
         {
             InitializeComponent();
-            this.profesor = profesor;
-            this.materia = materia;
+            info = Datoreporte;
         }
 
         public void CargarReporte()
         {
             reporte = new CRAnalisis();
 
-            reporte.SetParameterValue("NomProfesor", profesor);
-            reporte.SetParameterValue("NomMateria", materia);
-            reporte.SetParameterValue("NombrAn", materia);
-            reporte.SetParameterValue("NombrRe", materia);
-            reporte.SetParameterValue("Obser1", materia);
-            reporte.SetParameterValue("Obser2", materia);
-            reporte.SetParameterValue("Obser3", materia);
-            reporte.SetParameterValue("TNormal1", materia);
-            reporte.SetParameterValue("TNormal2", materia);
-            reporte.SetParameterValue("TNormal3", materia);
-            reporte.SetParameterValue("TEstandar1", materia);
-            reporte.SetParameterValue("TEstandar2", materia);
-            reporte.SetParameterValue("TEstandar3", materia);
-            reporte.SetParameterValue("TTObser", materia);
-            reporte.SetParameterValue("TTNorm", materia);
-            reporte.SetParameterValue("TTEst", materia);
-            reporte.SetParameterValue("Ciclos", materia);
-            reporte.SetParameterValue("Operacion", materia);
-            reporte.SetParameterValue("Ana1", materia);
-            reporte.SetParameterValue("Ope1", materia);
-            reporte.SetParameterValue("Hab1", materia);
-            reporte.SetParameterValue("Cond1", materia);
-            reporte.SetParameterValue("Consis1", materia);
-            reporte.SetParameterValue("Esfuerzo1", materia);
-            reporte.SetParameterValue("Suple1", materia);
+            reporte.SetParameterValue("NomProfesor",info.Profesor);
+            reporte.SetParameterValue("NomMateria",info.Materia);
+            reporte.SetParameterValue("NombrAn", info.NomAnalista);
+            reporte.SetParameterValue("NombrRe", info.NomResult);
+            reporte.SetParameterValue("Obser1", info.TObs1);
+            reporte.SetParameterValue("Obser2", info.TObs2);
+            reporte.SetParameterValue("Obser3", info.TObs3);
+            reporte.SetParameterValue("TNormal1", info.TNormal1);
+            reporte.SetParameterValue("TNormal2", info.TNormal2);
+            reporte.SetParameterValue("TNormal3", info.TNormal3);
+            reporte.SetParameterValue("TEstandar1", info.TEstandar1);
+            reporte.SetParameterValue("TEstandar2", info.TEstandar2);
+            reporte.SetParameterValue("TEstandar3", info.TEstandar3);
+            reporte.SetParameterValue("TTObser", info.TTObs);
+            reporte.SetParameterValue("TTNorm", info.TTNorm);
+            reporte.SetParameterValue("TTEst", info.TTEst);
+            reporte.SetParameterValue("Ciclos", info.Ciclo);
+            reporte.SetParameterValue("Operacion", info.Operacion);
+            reporte.SetParameterValue("Ana1", info.NomAnalista);
+            reporte.SetParameterValue("Ope1", info.Operacion);
+            reporte.SetParameterValue("Hab1", info.Hab1);
+            reporte.SetParameterValue("Cond1", info.Cond1);
+            reporte.SetParameterValue("Consis1", info.Consis1);
+            reporte.SetParameterValue("Esfuerzo1", info.Esfuerzo1);
+            reporte.SetParameterValue("Suple1", info.Suple1);
 
             crystalViewer.ReportSource = reporte;
 

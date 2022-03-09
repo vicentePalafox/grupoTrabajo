@@ -151,6 +151,12 @@
       <DependentUpon>CRAnalisis.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Vista\CROperaciones.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CROperaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vista\frmCargaReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,10 @@
     <EmbeddedResource Include="Vista\CRAnalisis.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRAnalisis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\CROperaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CROperaciones.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\frmAnalisis.resx">
       <DependentUpon>frmAnalisis.cs</DependentUpon>

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace gt2_ELAB.Entidad
 {
-    internal class Reporte
+    public class Reporte
     {
         public string Profesor { get; set; }
         public string Materia { get; set; }
@@ -31,5 +32,6 @@ namespace gt2_ELAB.Entidad
         public string Consis1 { get; set; }
         public string Esfuerzo1 { get; set; }
         public string Suple1 { get; set; }
+        public DataTable Proceso { get; set; }
     }
 }

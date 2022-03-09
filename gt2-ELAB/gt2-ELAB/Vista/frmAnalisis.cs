@@ -27,6 +27,13 @@ namespace gt2_ELAB.Vista
         {
             InitializeComponent();
             CargaListBox();
+
+            ToolTip tip = new ToolTip();
+            tip.UseAnimation = true;
+            tip.SetToolTip(btnNuevaP, "Comienza una sesión con otros usuarios");
+            tip.SetToolTip(btnVisualizarT, "Observa los tiempos de la practica seleccionada");
+            tip.SetToolTip(btnModificarR, "Cambia la calificación de la practica seleccionada");
+            tip.SetToolTip(btnGenerarR, "Crea el reporte de la practica seleccionada");
         }
 
         public void CargaListBox()
@@ -229,25 +236,52 @@ namespace gt2_ELAB.Vista
         {
             int idPrac, noAnalista, noEst, ciclos;
             string escuela, fecha;
+            string destreza, esfuerzo, condicion, concistencia, tolerancia;
 
             _ = new Funciones.SQL_Analista().SelecionaPractica(int.Parse(idConfig), out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
             DataTable dtProcesos = new DataTable();
             dtProcesos = new Funciones.SQL_Analista().CargaListaOper(Usuario.UsuarioName, fecha, noAnalista, noEst);
 
-
             frmCargaReporte cargaReporte = new frmCargaReporte();
             DialogResult dialog = cargaReporte.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-                string destreza, esfuerzo, condicion, concistencia, tolerancia;
                 string profesor = cargaReporte.txtProfesor.Text;
                 string materia = cargaReporte.txtMateria.Text;
 
                 new Funciones.SQL_Analista().obtenerConfig(int.Parse(idConfig), out destreza, out esfuerzo, out condicion, out concistencia, out tolerancia);
+                var num_alto = dtProcesos.Rows.Cast<DataRow>().Select(row => row.Field<int>("noOper")).Max();
 
+                Reporte reporte = new Reporte()
+                {
+                    Profesor = profesor,
+                    Materia = materia,
+                    NomAnalista = Usuario.UsuarioName,
+                    NomResult = $"Practica {fecha}",
+                    TObs1 = lblTo1.Text,
+                    TObs2 = lblTo2.Text,
+                    TObs3 = lblTo3.Text,
+                    TNormal1 = lblTn1.Text,
+                    TNormal2 = lblTn2.Text,
+                    TNormal3 = lblTn3.Text,
+                    TEstandar1 = lblTn1.Text,
+                    TEstandar2 = lblTn2.Text,
+                    TEstandar3 = lblTn3.Text,
+                    TTObs = lblTo4.Text,
+                    TTNorm = lblTn4.Text,
+                    TTEst = lblTe4.Text,
+                    Ciclo = ciclos.ToString(),
+                    Operacion = (num_alto + 1).ToString(),/// numero de actividades/////////////////////////////
+                    Hab1 = destreza,
+                    Cond1 = condicion,
+                    Consis1 = concistencia,
+                    Esfuerzo1 = esfuerzo,
+                    Suple1 = tolerancia,
+                    Proceso = dtProcesos
+                };
 
-
+                new frmCRanalista(reporte).Show();
             }
         }
 
