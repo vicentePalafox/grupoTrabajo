@@ -10,6 +10,7 @@ namespace gt2_ELAB.Entidad
     public class Reporte
     {
         public string Profesor { get; set; }
+        public string Operador { get; set; }
         public string Materia { get; set; }
         public string NomAnalista { get; set; }
         public string NomResult { get; set; }

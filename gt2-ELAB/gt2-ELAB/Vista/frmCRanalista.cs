@@ -45,7 +45,7 @@ namespace gt2_ELAB.Vista
             reporte.SetParameterValue("Ciclos", info.Ciclo);
             reporte.SetParameterValue("Operacion", info.Operacion);
             reporte.SetParameterValue("Ana1", info.NomAnalista);
-            reporte.SetParameterValue("Ope1", info.Operacion);
+            reporte.SetParameterValue("Ope1", info.Operador);
             reporte.SetParameterValue("Hab1", info.Hab1);
             reporte.SetParameterValue("Cond1", info.Cond1);
             reporte.SetParameterValue("Consis1", info.Consis1);

@@ -30,13 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargaReporte));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProfesor = new System.Windows.Forms.TextBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtOperador = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +52,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(537, 37);
             this.panel1.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(27, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 27);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Crear Reporte";
             // 
             // btnCerrar
             // 
@@ -107,7 +120,7 @@
             this.btnAceptar.FlatAppearance.BorderSize = 0;
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(176, 206);
+            this.btnAceptar.Location = new System.Drawing.Point(176, 229);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(162, 54);
             this.btnAceptar.TabIndex = 20;
@@ -115,22 +128,31 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // label3
+            // txtOperador
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(27, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 27);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Crear Reporte";
+            this.txtOperador.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOperador.Location = new System.Drawing.Point(218, 181);
+            this.txtOperador.Name = "txtOperador";
+            this.txtOperador.Size = new System.Drawing.Size(232, 26);
+            this.txtOperador.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(48, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 18);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Nombre del Operador:";
             // 
             // frmCargaReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 281);
+            this.ClientSize = new System.Drawing.Size(537, 297);
+            this.Controls.Add(this.txtOperador);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtMateria);
             this.Controls.Add(this.txtProfesor);
@@ -157,5 +179,7 @@
         internal System.Windows.Forms.TextBox txtProfesor;
         internal System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.TextBox txtOperador;
+        private System.Windows.Forms.Label label4;
     }
 }

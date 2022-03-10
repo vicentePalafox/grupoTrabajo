@@ -142,6 +142,11 @@
     <Compile Include="Entidad\Resultado.cs" />
     <Compile Include="Entidad\Secuencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />
+    <Compile Include="Funciones\DS_Operacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Operacion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Funciones\SQL_Analista.cs" />
     <Compile Include="Funciones\SQL_CRanalista.cs" />
     <Compile Include="Funciones\SQL_Estacion.cs" />
@@ -262,6 +267,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Funciones\DS_Operacion.xsc">
+      <DependentUpon>DS_Operacion.xsd</DependentUpon>
+    </None>
+    <None Include="Funciones\DS_Operacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Operacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Funciones\DS_Operacion.xss">
+      <DependentUpon>DS_Operacion.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

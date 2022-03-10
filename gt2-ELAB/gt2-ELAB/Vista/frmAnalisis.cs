@@ -249,6 +249,7 @@ namespace gt2_ELAB.Vista
             {
                 string profesor = cargaReporte.txtProfesor.Text;
                 string materia = cargaReporte.txtMateria.Text;
+                string operador = cargaReporte.txtOperador.Text;
 
                 new Funciones.SQL_Analista().obtenerConfig(int.Parse(idConfig), out destreza, out esfuerzo, out condicion, out concistencia, out tolerancia);
                 var num_alto = dtProcesos.Rows.Cast<DataRow>().Select(row => row.Field<int>("noOper")).Max();
@@ -257,6 +258,7 @@ namespace gt2_ELAB.Vista
                 {
                     Profesor = profesor,
                     Materia = materia,
+                    Operador = operador,
                     NomAnalista = Usuario.UsuarioName,
                     NomResult = $"Practica {fecha}",
                     TObs1 = lblTo1.Text,
@@ -272,7 +274,7 @@ namespace gt2_ELAB.Vista
                     TTNorm = lblTn4.Text,
                     TTEst = lblTe4.Text,
                     Ciclo = ciclos.ToString(),
-                    Operacion = (num_alto + 1).ToString(),/// numero de actividades/////////////////////////////
+                    Operacion = (num_alto + 1).ToString(),
                     Hab1 = destreza,
                     Cond1 = condicion,
                     Consis1 = concistencia,
