@@ -12,7 +12,7 @@
   <xs:element name="DS_Operacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_Operacion" msprop:Generator_UserDSName="DS_Operacion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ciclo" msprop:Generator_ColumnVarNameInTable="columnciclo" msprop:Generator_ColumnPropNameInRow="ciclo" msprop:Generator_ColumnPropNameInTable="cicloColumn" msprop:Generator_UserColumnName="ciclo" type="xs:string" minOccurs="0" />
@@ -67,6 +67,22 @@
               <xs:element name="paso49" msprop:Generator_ColumnVarNameInTable="columnpaso49" msprop:Generator_ColumnPropNameInRow="paso49" msprop:Generator_ColumnPropNameInTable="paso49Column" msprop:Generator_UserColumnName="paso49" type="xs:string" minOccurs="0" />
               <xs:element name="paso50" msprop:Generator_ColumnVarNameInTable="columnpaso50" msprop:Generator_ColumnPropNameInRow="paso50" msprop:Generator_ColumnPropNameInTable="paso50Column" msprop:Generator_UserColumnName="paso50" type="xs:string" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="paso1" msprop:Generator_ColumnVarNameInTable="columnpaso1" msprop:Generator_ColumnPropNameInRow="paso1" msprop:Generator_ColumnPropNameInTable="paso1Column" msprop:Generator_UserColumnName="paso1" type="xs:string" minOccurs="0" />
+              <xs:element name="paso2" msprop:Generator_ColumnVarNameInTable="columnpaso2" msprop:Generator_ColumnPropNameInRow="paso2" msprop:Generator_ColumnPropNameInTable="paso2Column" msprop:Generator_UserColumnName="paso2" type="xs:string" minOccurs="0" />
+              <xs:element name="paso3" msprop:Generator_ColumnVarNameInTable="columnpaso3" msprop:Generator_ColumnPropNameInRow="paso3" msprop:Generator_ColumnPropNameInTable="paso3Column" msprop:Generator_UserColumnName="paso3" type="xs:string" minOccurs="0" />
+              <xs:element name="paso4" msprop:Generator_ColumnVarNameInTable="columnpaso4" msprop:Generator_ColumnPropNameInRow="paso4" msprop:Generator_ColumnPropNameInTable="paso4Column" msprop:Generator_UserColumnName="paso4" type="xs:string" minOccurs="0" />
+              <xs:element name="paso5" msprop:Generator_ColumnVarNameInTable="columnpaso5" msprop:Generator_ColumnPropNameInRow="paso5" msprop:Generator_ColumnPropNameInTable="paso5Column" msprop:Generator_UserColumnName="paso5" type="xs:string" minOccurs="0" />
+              <xs:element name="paso6" msprop:Generator_ColumnVarNameInTable="columnpaso6" msprop:Generator_ColumnPropNameInRow="paso6" msprop:Generator_ColumnPropNameInTable="paso6Column" msprop:Generator_UserColumnName="paso6" type="xs:string" minOccurs="0" />
+              <xs:element name="paso7" msprop:Generator_ColumnVarNameInTable="columnpaso7" msprop:Generator_ColumnPropNameInRow="paso7" msprop:Generator_ColumnPropNameInTable="paso7Column" msprop:Generator_UserColumnName="paso7" type="xs:string" minOccurs="0" />
+              <xs:element name="paso8" msprop:Generator_ColumnVarNameInTable="columnpaso8" msprop:Generator_ColumnPropNameInRow="paso8" msprop:Generator_ColumnPropNameInTable="paso8Column" msprop:Generator_UserColumnName="paso8" type="xs:string" minOccurs="0" />
+              <xs:element name="paso9" msprop:Generator_ColumnVarNameInTable="columnpaso9" msprop:Generator_ColumnPropNameInRow="paso9" msprop:Generator_ColumnPropNameInTable="paso9Column" msprop:Generator_UserColumnName="paso9" type="xs:string" minOccurs="0" />
+              <xs:element name="paso10" msprop:Generator_ColumnVarNameInTable="columnpaso10" msprop:Generator_ColumnPropNameInRow="paso10" msprop:Generator_ColumnPropNameInTable="paso10Column" msprop:Generator_UserColumnName="paso10" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

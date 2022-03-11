@@ -20,39 +20,14 @@ namespace gt2_ELAB.Vista
         {
             InitializeComponent();
             info = Datoreporte;
+            CargarReporte();
         }
 
         public void CargarReporte()
         {
             reporte = new CRAnalisis();
-
-            reporte.SetParameterValue("NomProfesor", info.Profesor);
-            reporte.SetParameterValue("NomMateria", info.Materia);
-            reporte.SetParameterValue("NombrAn", info.NomAnalista);
-            reporte.SetParameterValue("NombrRe", info.NomResult);
-            reporte.SetParameterValue("Obser1", info.TObs1);
-            reporte.SetParameterValue("Obser2", info.TObs2);
-            reporte.SetParameterValue("Obser3", info.TObs3);
-            reporte.SetParameterValue("TNormal1", info.TNormal1);
-            reporte.SetParameterValue("TNormal2", info.TNormal2);
-            reporte.SetParameterValue("TNormal3", info.TNormal3);
-            reporte.SetParameterValue("TEstandar1", info.TEstandar1);
-            reporte.SetParameterValue("TEstandar2", info.TEstandar2);
-            reporte.SetParameterValue("TEstandar3", info.TEstandar3);
-            reporte.SetParameterValue("TTObser", info.TTObs);
-            reporte.SetParameterValue("TTNorm", info.TTNorm);
-            reporte.SetParameterValue("TTEst", info.TTEst);
-            reporte.SetParameterValue("Ciclos", info.Ciclo);
-            reporte.SetParameterValue("Operacion", info.Operacion);
-            reporte.SetParameterValue("Ana1", info.NomAnalista);
-            reporte.SetParameterValue("Ope1", info.Operador);
-            reporte.SetParameterValue("Hab1", info.Hab1);
-            reporte.SetParameterValue("Cond1", info.Cond1);
-            reporte.SetParameterValue("Consis1", info.Consis1);
-            reporte.SetParameterValue("Esfuerzo1", info.Esfuerzo1);
-            reporte.SetParameterValue("Suple1", info.Suple1);
-
-
+            int cicloT = int.Parse(info.Ciclo) + 1;
+            
             DataTable procesos = info.Proceso;
             Funciones.DS_Operacion dsOper1 = new Funciones.DS_Operacion();
             Funciones.DS_Operacion dsOper2 = new Funciones.DS_Operacion();
@@ -62,7 +37,7 @@ namespace gt2_ELAB.Vista
 
             string[] act1, act2, act3, act4, act5;
 
-            switch (int.Parse(info.Ciclo))
+            switch (cicloT)
             {
                 case 1:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = true;
@@ -70,11 +45,16 @@ namespace gt2_ELAB.Vista
                     reporte.ReportFooterSection7.SectionFormat.EnableSuppress = true;
                     reporte.ReportFooterSection8.SectionFormat.EnableSuppress = true;
 
-                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 0).Select(s => s.Field<string>("tOper")).ToArray();
+                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 0).Select(s => s.Field<string>("tObservado")).ToArray();
                     dsOper1 = new Funciones.DS_Operacion();
-                    dsOper1.DataTable1.Rows.Add(act1);
+                    dsOper1.DataTable2.Rows.Add(act1);
 
                     reporte.Subreports[0].SetDataSource(dsOper1);
+
+                    CargaParametros(reporte);
+
+                    crystalViewer.ReportSource = reporte;
+                    reporte.Refresh();
                     break;
                 case 2:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -82,13 +62,18 @@ namespace gt2_ELAB.Vista
                     reporte.ReportFooterSection7.SectionFormat.EnableSuppress = true;
                     reporte.ReportFooterSection8.SectionFormat.EnableSuppress = true;
 
-                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 0).Select(s => s.Field<string>("tOper")).ToArray();
-                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 1).Select(s => s.Field<string>("tOper")).ToArray();
-                    dsOper1.DataTable1.Rows.Add(act1);
-                    dsOper2.DataTable1.Rows.Add(act2);
+                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 0).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 1).Select(s => s.Field<string>("tObservado")).ToArray();
+                    dsOper1.DataTable2.Rows.Add(act1);
+                    dsOper2.DataTable2.Rows.Add(act2);
 
                     reporte.Subreports[0].SetDataSource(dsOper1);
                     reporte.Subreports[1].SetDataSource(dsOper2);
+
+                    CargaParametros(reporte);
+
+                    crystalViewer.ReportSource = reporte;
+                    reporte.Refresh();
                     break;
                 case 3:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -96,16 +81,21 @@ namespace gt2_ELAB.Vista
                     reporte.ReportFooterSection7.SectionFormat.EnableSuppress = true;
                     reporte.ReportFooterSection8.SectionFormat.EnableSuppress = true;
 
-                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 0).Select(s => s.Field<string>("tOper")).ToArray();
-                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 1).Select(s => s.Field<string>("tOper")).ToArray();
-                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 2).Select(s => s.Field<string>("tOper")).ToArray();
-                    dsOper1.DataTable1.Rows.Add(act1);
-                    dsOper2.DataTable1.Rows.Add(act2);
-                    dsOper3.DataTable1.Rows.Add(act3);
+                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 0).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 1).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 2).Select(s => s.Field<string>("tObservado")).ToArray();
+                    dsOper1.DataTable2.Rows.Add(act1);
+                    dsOper2.DataTable2.Rows.Add(act2);
+                    dsOper3.DataTable2.Rows.Add(act3);
 
                     reporte.Subreports[0].SetDataSource(dsOper1);
                     reporte.Subreports[1].SetDataSource(dsOper2);
                     reporte.Subreports[2].SetDataSource(dsOper3);
+
+                    CargaParametros(reporte);
+
+                    crystalViewer.ReportSource = reporte;
+                    reporte.Refresh();
                     break;
                 case 4:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -113,15 +103,24 @@ namespace gt2_ELAB.Vista
                     reporte.ReportFooterSection7.SectionFormat.EnableSuppress = false;
                     reporte.ReportFooterSection8.SectionFormat.EnableSuppress = true;
 
-                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 0).Select(s => s.Field<string>("tOper")).ToArray();
-                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 1).Select(s => s.Field<string>("tOper")).ToArray();
-                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 2).Select(s => s.Field<string>("tOper")).ToArray();
-                    act4 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 3).Select(s => s.Field<string>("tOper")).ToArray();
+                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 0).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 1).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 2).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act4 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 3).Select(s => s.Field<string>("tObservado")).ToArray();
+                    dsOper1.DataTable2.Rows.Add(act1);
+                    dsOper2.DataTable2.Rows.Add(act2);
+                    dsOper3.DataTable2.Rows.Add(act3);
+                    dsOper4.DataTable2.Rows.Add(act4);
 
                     reporte.Subreports[0].SetDataSource(dsOper1);
                     reporte.Subreports[1].SetDataSource(dsOper2);
                     reporte.Subreports[2].SetDataSource(dsOper3);
                     reporte.Subreports[3].SetDataSource(dsOper4);
+
+                    CargaParametros(reporte);
+
+                    crystalViewer.ReportSource = reporte;
+                    reporte.Refresh();
                     break;
                 case 5:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -129,23 +128,61 @@ namespace gt2_ELAB.Vista
                     reporte.ReportFooterSection7.SectionFormat.EnableSuppress = false;
                     reporte.ReportFooterSection8.SectionFormat.EnableSuppress = false;
 
-                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 0).Select(s => s.Field<string>("tOper")).ToArray();
-                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 1).Select(s => s.Field<string>("tOper")).ToArray();
-                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 2).Select(s => s.Field<string>("tOper")).ToArray();
-                    act4 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 3).Select(s => s.Field<string>("tOper")).ToArray();
-                    act5 = procesos.AsEnumerable().Where(s => s.Field<int>("ciclo") == 4).Select(s => s.Field<string>("tOper")).ToArray();
+                    act1 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 0).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act2 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 1).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act3 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 2).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act4 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 3).Select(s => s.Field<string>("tObservado")).ToArray();
+                    act5 = procesos.AsEnumerable().Where(s => s.Field<int>("cicloT") == 4).Select(s => s.Field<string>("tObservado")).ToArray();
+                    dsOper1.DataTable2.Rows.Add(act1);
+                    dsOper2.DataTable2.Rows.Add(act2);
+                    dsOper3.DataTable2.Rows.Add(act3);
+                    dsOper4.DataTable2.Rows.Add(act4);
+                    dsOper5.DataTable2.Rows.Add(act5);
 
                     reporte.Subreports[0].SetDataSource(dsOper1);
                     reporte.Subreports[1].SetDataSource(dsOper2);
                     reporte.Subreports[2].SetDataSource(dsOper3);
                     reporte.Subreports[3].SetDataSource(dsOper4);
                     reporte.Subreports[4].SetDataSource(dsOper5);
+
+                    CargaParametros(reporte);
+
+                    crystalViewer.ReportSource = reporte;
+                    reporte.Refresh();
                     break;
                 default:
                     break;
             }
+        }
 
-            crystalViewer.ReportSource = reporte;
+        public void CargaParametros(CRAnalisis rAnalisis)
+        {
+            int cicloT = int.Parse(info.Ciclo) + 1;
+            rAnalisis.SetParameterValue("NomProfesor", info.Profesor);
+            rAnalisis.SetParameterValue("NomMateria", info.Materia);
+            rAnalisis.SetParameterValue("NombrAn", info.NomAnalista);
+            rAnalisis.SetParameterValue("NombrRe", info.NomResult);
+            rAnalisis.SetParameterValue("Obser1", info.TObs1);
+            rAnalisis.SetParameterValue("Obser2", info.TObs2);
+            rAnalisis.SetParameterValue("Obser3", info.TObs3);
+            rAnalisis.SetParameterValue("TNormal1", info.TNormal1);
+            rAnalisis.SetParameterValue("TNormal2", info.TNormal2);
+            rAnalisis.SetParameterValue("TNormal3", info.TNormal3);
+            rAnalisis.SetParameterValue("TEstandar1", info.TEstandar1);
+            rAnalisis.SetParameterValue("TEstandar2", info.TEstandar2);
+            rAnalisis.SetParameterValue("TEstandar3", info.TEstandar3);
+            rAnalisis.SetParameterValue("TTObser", info.TTObs);
+            rAnalisis.SetParameterValue("TTNorm", info.TTNorm);
+            rAnalisis.SetParameterValue("TTEst", info.TTEst);
+            rAnalisis.SetParameterValue("Ciclos", cicloT);
+            rAnalisis.SetParameterValue("Operacion", info.Operacion);
+            rAnalisis.SetParameterValue("Ana1", info.NomAnalista);
+            rAnalisis.SetParameterValue("Ope1", info.Operador);
+            rAnalisis.SetParameterValue("Hab1", info.Hab1);
+            rAnalisis.SetParameterValue("Cond1", info.Cond1);
+            rAnalisis.SetParameterValue("Consis1", info.Consis1);
+            rAnalisis.SetParameterValue("Esfuerzo1", info.Esfuerzo1);
+            rAnalisis.SetParameterValue("Suple1", info.Suple1);
         }
     }
 }
