@@ -27,11 +27,12 @@ namespace gt2_ELAB.Vista
             CargaListBox();
 
             ToolTip tip = new ToolTip();
-            tip.UseAnimation = true;
+            tip.UseAnimation = false;
             tip.SetToolTip(btnNuevaP, "Comienza una sesión con otros usuarios");
             tip.SetToolTip(btnVisualizarT, "Observa los tiempos de la practica seleccionada");
             tip.SetToolTip(btnModificarR, "Cambia la calificación de la practica seleccionada");
             tip.SetToolTip(btnGenerarR, "Crea el reporte de la practica seleccionada");
+            tip.SetToolTip(btnTotal, "Recarga la lista de practicas, Sí finalizaste una sesión asegurate que tu equipo haya finalizado");
         }
 
         public void CargaListBox()
