@@ -66,6 +66,10 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnTotal = new System.Windows.Forms.Button();
             this.timerActualiza = new System.Windows.Forms.Timer(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.lblSec = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelEst1.SuspendLayout();
             this.panelEst2.SuspendLayout();
@@ -465,18 +469,71 @@
             this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
-            this.btnTotal.Location = new System.Drawing.Point(321, 319);
+            this.btnTotal.Location = new System.Drawing.Point(311, 120);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(53, 43);
             this.btnTotal.TabIndex = 31;
             this.btnTotal.UseVisualStyleBackColor = false;
             this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click_1);
             // 
+            // timerActualiza
+            // 
+            this.timerActualiza.Interval = 500;
+            this.timerActualiza.Tick += new System.EventHandler(this.timerActualiza_Tick);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(291, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 18);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Actualiza en:";
+            this.label11.Visible = false;
+            // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMin.Location = new System.Drawing.Point(303, 82);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(26, 18);
+            this.lblMin.TabIndex = 33;
+            this.lblMin.Text = "00";
+            this.lblMin.Visible = false;
+            // 
+            // lblSec
+            // 
+            this.lblSec.AutoSize = true;
+            this.lblSec.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSec.Location = new System.Drawing.Point(338, 82);
+            this.lblSec.Name = "lblSec";
+            this.lblSec.Size = new System.Drawing.Size(26, 18);
+            this.lblSec.TabIndex = 34;
+            this.lblSec.Text = "00";
+            this.lblSec.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(329, 82);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(12, 18);
+            this.label14.TabIndex = 35;
+            this.label14.Text = ":";
+            this.label14.Visible = false;
+            // 
             // frmAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 538);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lblSec);
+            this.Controls.Add(this.lblMin);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnTotal);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label10);
@@ -554,5 +611,9 @@
         public System.Windows.Forms.ListBox lbxListaAnalisis;
         private System.Windows.Forms.Button btnTotal;
         public System.Windows.Forms.Timer timerActualiza;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Label lblSec;
+        private System.Windows.Forms.Label label14;
     }
 }

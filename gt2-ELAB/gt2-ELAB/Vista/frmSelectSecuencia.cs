@@ -17,7 +17,7 @@ namespace gt2_ELAB
 
         private void btnComenzar_Click(object sender, EventArgs e)
         {
-            if(cbxPractica.Text == "")
+            if(cbxPractica.Text != "")
             {
                 int registro = 0;
                 int PosicionEstacion = 0;

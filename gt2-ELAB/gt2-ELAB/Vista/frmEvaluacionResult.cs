@@ -1,13 +1,5 @@
-﻿using gt2_ELAB.Entidad;
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gt2_ELAB.Vista
@@ -101,6 +93,13 @@ namespace gt2_ELAB.Vista
                 {
                     new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
                     new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec, noAnalista, noEstacion);
+
+                    //frmAnalisis analisis = Owner as frmAnalisis;
+                    //analisis.timerActualiza.Enabled = true;
+                    //analisis.stopwatch.Start();
+                    //this.Owner = analisis as Owner;
+                    //Invoke(new Action(() => analisis.timerActualiza.Enabled = true));
+                    //Invoke(new Action(() => analisis.stopwatch.Start()));
                 }
                 else
                     new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());

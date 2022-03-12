@@ -1,14 +1,11 @@
 ﻿using gt2_ELAB.Entidad;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gt2_ELAB.Vista
@@ -16,6 +13,7 @@ namespace gt2_ELAB.Vista
     public partial class frmAnalisis : Form
     {
         string idConfig;
+        public Stopwatch stopwatch = new Stopwatch();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -288,5 +286,22 @@ namespace gt2_ELAB.Vista
         }
 
         private void btnTotal_Click_1(object sender, EventArgs e) => CargaListBox();
+
+        private void timerActualiza_Tick(object sender, EventArgs e)
+{
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)stopwatch.ElapsedMilliseconds);
+            TimeSpan tsInverso = new TimeSpan(0, 0, 1, 0);
+            TimeSpan result = tsInverso.Subtract(ts);
+
+            lblMin.Text = result.Minutes.ToString().Length < 2 ? $"0{result.Minutes.ToString()}" : result.Minutes.ToString();
+            lblSec.Text = result.Seconds.ToString().Length < 2 ? $"0{result.Seconds.ToString()}" : result.Seconds.ToString();
+
+            if(lblMin.Text == "00" && lblSec.Text == "00")
+            {
+                btnTotal.BackColor = Color.Red;
+                timerActualiza.Enabled = false;
+                stopwatch.Stop();
+            }
+        }
     }
 }
