@@ -68,7 +68,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Traslado Semiautomatico";
+            this.label3.Text = "Traslado Semiautomático";
             // 
             // txtUsuario
             // 
@@ -124,7 +124,7 @@
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(129, 56);
             this.btnIniciar.TabIndex = 3;
-            this.btnIniciar.Text = "Iniciar Sesion";
+            this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 

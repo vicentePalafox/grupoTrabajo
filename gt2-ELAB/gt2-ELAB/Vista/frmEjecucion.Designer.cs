@@ -150,7 +150,7 @@
             this.lblContador.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContador.Location = new System.Drawing.Point(87, 153);
             this.lblContador.Name = "lblContador";
-            this.lblContador.Size = new System.Drawing.Size(30, 32);
+            this.lblContador.Size = new System.Drawing.Size(29, 32);
             this.lblContador.TabIndex = 5;
             this.lblContador.Text = "0";
             // 
@@ -241,7 +241,7 @@
             this.lblTseg.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTseg.Location = new System.Drawing.Point(52, 335);
             this.lblTseg.Name = "lblTseg";
-            this.lblTseg.Size = new System.Drawing.Size(37, 32);
+            this.lblTseg.Size = new System.Drawing.Size(36, 32);
             this.lblTseg.TabIndex = 13;
             this.lblTseg.Text = "**";
             // 
@@ -251,7 +251,7 @@
             this.lblTmilis.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTmilis.Location = new System.Drawing.Point(106, 335);
             this.lblTmilis.Name = "lblTmilis";
-            this.lblTmilis.Size = new System.Drawing.Size(37, 32);
+            this.lblTmilis.Size = new System.Drawing.Size(36, 32);
             this.lblTmilis.TabIndex = 14;
             this.lblTmilis.Text = "**";
             // 
@@ -261,7 +261,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(88, 335);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 32);
+            this.label1.Size = new System.Drawing.Size(22, 32);
             this.label1.TabIndex = 15;
             this.label1.Text = ":";
             // 

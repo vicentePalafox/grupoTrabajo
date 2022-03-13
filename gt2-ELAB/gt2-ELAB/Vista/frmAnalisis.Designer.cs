@@ -108,7 +108,7 @@
             this.btnNuevaP.Name = "btnNuevaP";
             this.btnNuevaP.Size = new System.Drawing.Size(129, 57);
             this.btnNuevaP.TabIndex = 2;
-            this.btnNuevaP.Text = "Iniciar Nueva Practica";
+            this.btnNuevaP.Text = "Iniciar Nueva Práctica";
             this.btnNuevaP.UseVisualStyleBackColor = false;
             this.btnNuevaP.Click += new System.EventHandler(this.btnNuevaP_Click);
             // 
@@ -185,7 +185,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 18);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Estacion 1";
+            this.label2.Text = "Estación 1";
             // 
             // label3
             // 
@@ -195,7 +195,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 18);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Estacion 2";
+            this.label3.Text = "Estación 2";
             // 
             // label4
             // 
@@ -205,7 +205,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 18);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Estacion 3";
+            this.label4.Text = "Estación 3";
             // 
             // label5
             // 
@@ -235,7 +235,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 36);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Tiempo \r\nEstandar";
+            this.label7.Text = "Tiempo \r\nEstándar";
             // 
             // panel1
             // 
@@ -259,7 +259,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(206, 24);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Analisis de Practicas";
+            this.label9.Text = "Análisis de Practicas";
             // 
             // btnCerrar
             // 

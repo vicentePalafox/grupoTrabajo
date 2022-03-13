@@ -94,7 +94,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 18);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Seleccionar Practica";
+            this.label1.Text = "Seleccionar Práctica";
             // 
             // frmSelectSecuencia
             // 
