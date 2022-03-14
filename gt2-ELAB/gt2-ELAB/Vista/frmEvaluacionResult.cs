@@ -33,7 +33,7 @@ namespace gt2_ELAB.Vista
             cbxCondiciones.Text = "0";
             cbxDestreza.Text = "0";
             cbxEsfuerzo.Text = "0";
-            cbxToleranciaS.Text = "0";
+            cbxToleranciaS.Text = "0.01";
 
         }
 
