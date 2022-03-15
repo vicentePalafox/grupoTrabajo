@@ -20,6 +20,7 @@ namespace gt2_ELAB.Vista
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        bool bandera = false;
 
         public frmAnalisis()
         {
@@ -33,6 +34,8 @@ namespace gt2_ELAB.Vista
             tip.SetToolTip(btnModificarR, "Cambia la calificación de la practica seleccionada");
             tip.SetToolTip(btnGenerarR, "Crea el reporte de la practica seleccionada");
             tip.SetToolTip(btnTotal, "Recarga la lista de practicas, Sí finalizaste una sesión asegurate que tu equipo haya finalizado");
+            lbxListaAnalisis.ClearSelected();
+            bandera= true;
         }
 
         public void CargaListBox()
@@ -148,62 +151,68 @@ namespace gt2_ELAB.Vista
 
         private void lbxListaAnalisis_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (lbxListaAnalisis.SelectedIndex != -1)
+            if(bandera)
             {
-                idConfig = lbxListaAnalisis.SelectedValue.ToString();
-                int idConf;
-                if (int.TryParse(idConfig, out idConf))
+                if (lbxListaAnalisis.SelectedIndex != -1)
                 {
-                    int idPrac, noAnalista, noEst, ciclos;
-                    string escuela, fecha;
-                    _ = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
-
-                    string fechaIni = fechaRangoIni(fecha);
-                    string fechaFin = fechaRangoFin(fecha);
-
-                    ColorEstacionAct(noEst);
-
-                    string tobs1, tobs2, tobs3, tnor1, tnor2, tnor3, test1, test2, test3;
-
-                    bool tiempos = new Funciones.SQL_Analista().BuscaTiempoAnalistas(noAnalista, idPrac, escuela, fechaIni, fechaFin, out tobs1, out tobs2, out tobs3, out test1, out test2, out test3, out tnor1, out tnor2, out tnor3);
-                    if (tiempos)
+                    idConfig = lbxListaAnalisis.SelectedValue.ToString();
+                    int idConf;
+                    if (int.TryParse(idConfig, out idConf))
                     {
-                        lblTo1.Text = tobs1;
-                        lblTo2.Text = tobs2;
-                        lblTo3.Text = tobs3;
+                        int idPrac, noAnalista, noEst, ciclos;
+                        string escuela, fecha;
+                        _ = new Funciones.SQL_Analista().SelecionaPractica(idConf, out idPrac, out noAnalista, out escuela, out noEst, out fecha, out ciclos);
 
-                        lblTn1.Text = tnor1;
-                        lblTn2.Text = tnor2;
-                        lblTn3.Text = tnor3;
+                        string fechaIni = fechaRangoIni(fecha);
+                        string fechaFin = fechaRangoFin(fecha);
 
-                        lblTe1.Text = test1;
-                        lblTe2.Text = test2;
-                        lblTe3.Text = test3;
+                        ColorEstacionAct(noEst);
 
-                        lblTo4.Text = ((decimal.Parse(tobs1) + decimal.Parse(tobs2) + decimal.Parse(tobs3))/3).ToString("N3");
-                        lblTn4.Text = ((decimal.Parse(tnor1) + decimal.Parse(tnor2) + decimal.Parse(tnor3))/3).ToString("N3");
-                        lblTe4.Text = ((decimal.Parse(test1) + decimal.Parse(test2) + decimal.Parse(test3))/3).ToString("N3");
-                    }
-                    else
-                    {
-                        lblTo1.Text = "0.0";
-                        lblTo2.Text = "0.0";
-                        lblTo3.Text = "0.0";
-                        lblTo4.Text = "0.0";
+                        string tobs1, tobs2, tobs3, tnor1, tnor2, tnor3, test1, test2, test3;
 
-                        lblTn1.Text = "0.0";
-                        lblTn2.Text = "0.0";
-                        lblTn3.Text = "0.0";
-                        lblTn4.Text = "0.0";
+                        bool tiempos = new Funciones.SQL_Analista().BuscaTiempoAnalistas(noAnalista, idPrac, escuela, fechaIni, fechaFin, out tobs1, out tobs2, out tobs3, out test1, out test2, out test3, out tnor1, out tnor2, out tnor3);
+                        if (tiempos)
+                        {
+                            lblTo1.Text = tobs1;
+                            lblTo2.Text = tobs2;
+                            lblTo3.Text = tobs3;
 
-                        lblTe1.Text = "0.0";
-                        lblTe2.Text = "0.0";
-                        lblTe3.Text = "0.0";
-                        lblTe4.Text = "0.0";
+                            lblTn1.Text = tnor1;
+                            lblTn2.Text = tnor2;
+                            lblTn3.Text = tnor3;
+
+                            lblTe1.Text = test1;
+                            lblTe2.Text = test2;
+                            lblTe3.Text = test3;
+
+                            lblTo4.Text = ((decimal.Parse(tobs1) + decimal.Parse(tobs2) + decimal.Parse(tobs3)) / 3).ToString("N3");
+                            lblTn4.Text = ((decimal.Parse(tnor1) + decimal.Parse(tnor2) + decimal.Parse(tnor3)) / 3).ToString("N3");
+                            lblTe4.Text = ((decimal.Parse(test1) + decimal.Parse(test2) + decimal.Parse(test3)) / 3).ToString("N3");
+
+                            btnModificarR.Enabled = true;
+                            btnGenerarR.Enabled = true;
+                            
+                        }
+                        else
+                        {
+                            lblTo1.Text = "0.0";
+                            lblTo2.Text = "0.0";
+                            lblTo3.Text = "0.0";
+                            lblTo4.Text = "0.0";
+
+                            lblTn1.Text = "0.0";
+                            lblTn2.Text = "0.0";
+                            lblTn3.Text = "0.0";
+                            lblTn4.Text = "0.0";
+
+                            lblTe1.Text = "0.0";
+                            lblTe2.Text = "0.0";
+                            lblTe3.Text = "0.0";
+                            lblTe4.Text = "0.0";
+                        }
                     }
                 }
             }
-
         }
 
         private void btnModificarR_Click(object sender, EventArgs e)

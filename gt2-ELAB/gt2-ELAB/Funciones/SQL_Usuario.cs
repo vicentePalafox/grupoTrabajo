@@ -42,7 +42,7 @@ namespace gt2_ELAB.Funciones
                 {
                     result = true;
                     nombre = (string)reader[1];
-                    escuela = (string)reader[7];
+                    escuela = (string)reader[9];
                 }
                 connection.Close();
             }

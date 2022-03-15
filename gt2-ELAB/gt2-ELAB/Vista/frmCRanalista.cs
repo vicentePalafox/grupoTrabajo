@@ -20,7 +20,7 @@ namespace gt2_ELAB.Vista
         public void CargarReporte()
         {
             reporte = new CRAnalisis();
-            int cicloT = int.Parse(info.Ciclo) + 1;
+            int cicloT = int.Parse(info.Ciclo);
             
             DataTable procesos = info.Proceso;
             Funciones.DS_Operacion dsOper1 = new Funciones.DS_Operacion();
@@ -48,7 +48,6 @@ namespace gt2_ELAB.Vista
                     CargaParametros(reporte);
 
                     crystalViewer.ReportSource = reporte;
-                    reporte.Refresh();
                     break;
                 case 2:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -67,7 +66,6 @@ namespace gt2_ELAB.Vista
                     CargaParametros(reporte);
 
                     crystalViewer.ReportSource = reporte;
-                    reporte.Refresh();
                     break;
                 case 3:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -89,7 +87,6 @@ namespace gt2_ELAB.Vista
                     CargaParametros(reporte);
 
                     crystalViewer.ReportSource = reporte;
-                    reporte.Refresh();
                     break;
                 case 4:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -114,7 +111,6 @@ namespace gt2_ELAB.Vista
                     CargaParametros(reporte);
 
                     crystalViewer.ReportSource = reporte;
-                    reporte.Refresh();
                     break;
                 case 5:
                     reporte.ReportFooterSection5.SectionFormat.EnableSuppress = false;
@@ -142,7 +138,6 @@ namespace gt2_ELAB.Vista
                     CargaParametros(reporte);
 
                     crystalViewer.ReportSource = reporte;
-                    reporte.Refresh();
                     break;
                 default:
                     break;
@@ -151,7 +146,7 @@ namespace gt2_ELAB.Vista
 
         public void CargaParametros(CRAnalisis rAnalisis)
         {
-            int cicloT = int.Parse(info.Ciclo) + 1;
+            int cicloT = int.Parse(info.Ciclo);
             rAnalisis.SetParameterValue("NomProfesor", info.Profesor);
             rAnalisis.SetParameterValue("NomMateria", info.Materia);
             rAnalisis.SetParameterValue("NombrAn", info.NomAnalista);

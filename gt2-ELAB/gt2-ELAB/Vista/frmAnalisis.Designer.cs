@@ -131,6 +131,7 @@
             // btnGenerarR
             // 
             this.btnGenerarR.BackColor = System.Drawing.Color.White;
+            this.btnGenerarR.Enabled = false;
             this.btnGenerarR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnGenerarR.FlatAppearance.BorderSize = 3;
             this.btnGenerarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -147,6 +148,7 @@
             // btnModificarR
             // 
             this.btnModificarR.BackColor = System.Drawing.Color.White;
+            this.btnModificarR.Enabled = false;
             this.btnModificarR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnModificarR.FlatAppearance.BorderSize = 3;
             this.btnModificarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
