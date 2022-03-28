@@ -131,3 +131,4 @@ C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\
 C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csproj.AssemblyReference.cache
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2_ELAB.Vista.frmCargaReporte.resources
 C:\Users\vpala\Documents\Git_Repost\grupoTrabajo\gt2-ELAB\gt2-ELAB\obj\x64\Debug\gt2-ELAB.csprojAssemblyReference.cache
+C:\Users\SISTEMAS\Documents\GitHub\grupoTrabajo\gt2-ELAB\gt2-ELAB\bin\x64\Debug\MySql.Web.xml
