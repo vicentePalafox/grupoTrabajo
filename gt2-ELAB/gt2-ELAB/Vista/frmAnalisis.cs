@@ -30,10 +30,10 @@ namespace gt2_ELAB.Vista
             ToolTip tip = new ToolTip();
             tip.UseAnimation = false;
             tip.SetToolTip(btnNuevaP, "Comienza una sesión con otros usuarios");
-            tip.SetToolTip(btnVisualizarT, "Observa los tiempos de la practica seleccionada");
-            tip.SetToolTip(btnModificarR, "Cambia la calificación de la practica seleccionada");
-            tip.SetToolTip(btnGenerarR, "Crea el reporte de la practica seleccionada");
-            tip.SetToolTip(btnTotal, "Recarga la lista de practicas, Sí finalizaste una sesión asegurate que tu equipo haya finalizado");
+            tip.SetToolTip(btnVisualizarT, "Observa los tiempos de la práctica seleccionada");
+            tip.SetToolTip(btnModificarR, "Cambia la calificación de la práctica seleccionada");
+            tip.SetToolTip(btnGenerarR, "Crea el reporte de la práctica seleccionada");
+            tip.SetToolTip(btnTotal, "Recarga la lista de prácticas, Sí finalizaste una sesión asegurate que tu equipo haya finalizado");
             lbxListaAnalisis.ClearSelected();
             bandera= true;
         }
@@ -210,6 +210,7 @@ namespace gt2_ELAB.Vista
                             lblTe3.Text = "0.0";
                             lblTe4.Text = "0.0";
                         }
+                        btnVisualizarT.Enabled = true;
                     }
                 }
             }

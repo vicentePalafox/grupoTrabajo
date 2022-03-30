@@ -71,7 +71,7 @@ namespace gt2_ELAB
 
                     if (registro.Equals(3) && i == 12)
                     {
-                        MessageBox.Show("La practica ya esta llena");
+                        MessageBox.Show("La práctica ya esta llena");
                         insertAnaista = false;
                     }
                 }

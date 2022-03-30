@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Modificacion de Datos";
+            this.label1.Text = "Modificación de Datos";
             // 
             // cbxDestreza
             // 

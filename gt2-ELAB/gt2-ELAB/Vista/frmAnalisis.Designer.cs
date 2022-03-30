@@ -93,7 +93,7 @@
             this.lbxListaAnalisis.ItemHeight = 18;
             this.lbxListaAnalisis.Location = new System.Drawing.Point(40, 106);
             this.lbxListaAnalisis.Name = "lbxListaAnalisis";
-            this.lbxListaAnalisis.Size = new System.Drawing.Size(255, 256);
+            this.lbxListaAnalisis.Size = new System.Drawing.Size(239, 256);
             this.lbxListaAnalisis.TabIndex = 1;
             this.lbxListaAnalisis.SelectedValueChanged += new System.EventHandler(this.lbxListaAnalisis_SelectedValueChanged);
             // 
@@ -115,6 +115,7 @@
             // btnVisualizarT
             // 
             this.btnVisualizarT.BackColor = System.Drawing.Color.White;
+            this.btnVisualizarT.Enabled = false;
             this.btnVisualizarT.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnVisualizarT.FlatAppearance.BorderSize = 3;
             this.btnVisualizarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -471,9 +472,9 @@
             this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
-            this.btnTotal.Location = new System.Drawing.Point(311, 120);
+            this.btnTotal.Location = new System.Drawing.Point(289, 120);
             this.btnTotal.Name = "btnTotal";
-            this.btnTotal.Size = new System.Drawing.Size(53, 43);
+            this.btnTotal.Size = new System.Drawing.Size(50, 50);
             this.btnTotal.TabIndex = 31;
             this.btnTotal.UseVisualStyleBackColor = false;
             this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click_1);

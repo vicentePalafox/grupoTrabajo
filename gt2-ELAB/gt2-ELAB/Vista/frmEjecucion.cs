@@ -81,6 +81,12 @@ namespace gt2_ELAB
                 label7.Visible = false;
                 lblPzCola.Visible = false;
             }
+
+            if(noEstacion != 1 && pzCola == 0)
+            {
+                lblAviso.Visible = false;
+                lblContador.Visible = false;
+            }
         }
 
         private void frmEjecucion_Load(object sender, EventArgs e)
@@ -148,7 +154,7 @@ namespace gt2_ELAB
                     swTiempoObs.Stop();
                     tmrProceso.Stop();
                     new SQL_Analista().UpdateStatusAnalista(idSecuencia, numeroAnalista, numero_estacion);
-                    MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
+                    MessageBox.Show($"Se acabo el proceso de la estación: {numero_estacion}");
 
                     if (backgroundWorker1.IsBusy != true)
                     {
@@ -254,7 +260,7 @@ namespace gt2_ELAB
                 if(int.Parse(lblPzCola.Text) == pzcolaIni)
                 {
                     tmrPzCola.Enabled = false;
-                    MessageBox.Show($"Se acabo el proceso de la estacion: {numero_estacion}");
+                    MessageBox.Show($"Se acabo el proceso de la estación: {numero_estacion}");
                     imagenesActivados = false;
                     swTiempoObs.Stop();
                     tmrProceso.Enabled = false;
@@ -436,7 +442,7 @@ namespace gt2_ELAB
                     {
                         new SQL_Analista().GuardarPractica(DT_tiempos, idSecuencia, numero_estacion, numeroAnalista, horaInicio);
 
-                        Invoke(new Action(() => MessageBox.Show("La sesion ha terminado")));
+                        Invoke(new Action(() => MessageBox.Show("La sesión ha terminado")));
 
                         frmEvaluacionResult evaluacionResult = new frmEvaluacionResult(DT_tiempos, cicloSec, idSecuencia, idPract, numero_estacion, numeroAnalista, horaInicio);
                         Invoke(new Action(() => evaluacionResult.Show()));
