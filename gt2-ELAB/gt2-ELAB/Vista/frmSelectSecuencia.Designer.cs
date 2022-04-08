@@ -40,11 +40,11 @@
             // cbxPractica
             // 
             this.cbxPractica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPractica.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxPractica.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPractica.FormattingEnabled = true;
-            this.cbxPractica.Location = new System.Drawing.Point(131, 99);
+            this.cbxPractica.Location = new System.Drawing.Point(110, 108);
             this.cbxPractica.Name = "cbxPractica";
-            this.cbxPractica.Size = new System.Drawing.Size(175, 26);
+            this.cbxPractica.Size = new System.Drawing.Size(224, 32);
             this.cbxPractica.TabIndex = 0;
             // 
             // panel1
@@ -76,11 +76,11 @@
             // 
             this.btnComenzar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
             this.btnComenzar.FlatAppearance.BorderSize = 0;
-            this.btnComenzar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComenzar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComenzar.ForeColor = System.Drawing.Color.White;
-            this.btnComenzar.Location = new System.Drawing.Point(153, 186);
+            this.btnComenzar.Location = new System.Drawing.Point(140, 182);
             this.btnComenzar.Name = "btnComenzar";
-            this.btnComenzar.Size = new System.Drawing.Size(136, 50);
+            this.btnComenzar.Size = new System.Drawing.Size(158, 50);
             this.btnComenzar.TabIndex = 3;
             this.btnComenzar.Text = "Comenzar";
             this.btnComenzar.UseVisualStyleBackColor = false;
@@ -89,10 +89,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 78);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(106, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 18);
+            this.label1.Size = new System.Drawing.Size(205, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccionar Práctica";
             // 

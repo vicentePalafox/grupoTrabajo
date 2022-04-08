@@ -41,26 +41,26 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 33);
+            this.panel1.Size = new System.Drawing.Size(310, 33);
             this.panel1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(22, 57);
+            this.label1.Location = new System.Drawing.Point(30, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 22);
+            this.label1.Size = new System.Drawing.Size(223, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "Ingrese Piezas en cola";
             // 
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
-            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(164, 133);
+            this.btnAceptar.Location = new System.Drawing.Point(190, 148);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(108, 44);
             this.btnAceptar.TabIndex = 5;
@@ -70,17 +70,17 @@
             // 
             // txtPZcola
             // 
-            this.txtPZcola.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPZcola.Location = new System.Drawing.Point(26, 101);
+            this.txtPZcola.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPZcola.Location = new System.Drawing.Point(34, 101);
             this.txtPZcola.Name = "txtPZcola";
-            this.txtPZcola.Size = new System.Drawing.Size(61, 32);
+            this.txtPZcola.Size = new System.Drawing.Size(61, 35);
             this.txtPZcola.TabIndex = 6;
             // 
             // frmPzCola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 189);
+            this.ClientSize = new System.Drawing.Size(310, 204);
             this.Controls.Add(this.txtPZcola);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label1);

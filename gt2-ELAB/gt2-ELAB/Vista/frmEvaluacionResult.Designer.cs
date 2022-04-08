@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEvaluacionResult));
             this.label1 = new System.Windows.Forms.Label();
             this.cbxDestreza = new System.Windows.Forms.ComboBox();
             this.cbxEsfuerzo = new System.Windows.Forms.ComboBox();
@@ -43,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnTotal = new System.Windows.Forms.Button();
@@ -53,17 +51,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 50);
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(25, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 18);
+            this.label1.Size = new System.Drawing.Size(247, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modificación de Datos";
             // 
             // cbxDestreza
             // 
             this.cbxDestreza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDestreza.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDestreza.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDestreza.FormattingEnabled = true;
             this.cbxDestreza.Items.AddRange(new object[] {
             "0.15",
@@ -77,15 +76,15 @@
             "-0.1",
             "-0.16",
             "-0.22"});
-            this.cbxDestreza.Location = new System.Drawing.Point(26, 104);
+            this.cbxDestreza.Location = new System.Drawing.Point(53, 113);
             this.cbxDestreza.Name = "cbxDestreza";
-            this.cbxDestreza.Size = new System.Drawing.Size(85, 26);
+            this.cbxDestreza.Size = new System.Drawing.Size(85, 30);
             this.cbxDestreza.TabIndex = 1;
             // 
             // cbxEsfuerzo
             // 
             this.cbxEsfuerzo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEsfuerzo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEsfuerzo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEsfuerzo.FormattingEnabled = true;
             this.cbxEsfuerzo.Items.AddRange(new object[] {
             "0.13",
@@ -99,15 +98,15 @@
             "-0.18",
             "-0.12",
             "-0.17"});
-            this.cbxEsfuerzo.Location = new System.Drawing.Point(139, 104);
+            this.cbxEsfuerzo.Location = new System.Drawing.Point(171, 113);
             this.cbxEsfuerzo.Name = "cbxEsfuerzo";
-            this.cbxEsfuerzo.Size = new System.Drawing.Size(85, 26);
+            this.cbxEsfuerzo.Size = new System.Drawing.Size(85, 30);
             this.cbxEsfuerzo.TabIndex = 2;
             // 
             // cbxCondiciones
             // 
             this.cbxCondiciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCondiciones.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCondiciones.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCondiciones.FormattingEnabled = true;
             this.cbxCondiciones.Items.AddRange(new object[] {
             "0.06",
@@ -116,15 +115,15 @@
             "0",
             "-0.03",
             "-0.07"});
-            this.cbxCondiciones.Location = new System.Drawing.Point(257, 104);
+            this.cbxCondiciones.Location = new System.Drawing.Point(302, 113);
             this.cbxCondiciones.Name = "cbxCondiciones";
-            this.cbxCondiciones.Size = new System.Drawing.Size(85, 26);
+            this.cbxCondiciones.Size = new System.Drawing.Size(85, 30);
             this.cbxCondiciones.TabIndex = 3;
             // 
             // cbxConcistencia
             // 
             this.cbxConcistencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxConcistencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxConcistencia.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxConcistencia.FormattingEnabled = true;
             this.cbxConcistencia.Items.AddRange(new object[] {
             "0.04",
@@ -133,15 +132,15 @@
             "0",
             "-0.02",
             "-0.04"});
-            this.cbxConcistencia.Location = new System.Drawing.Point(370, 104);
+            this.cbxConcistencia.Location = new System.Drawing.Point(439, 113);
             this.cbxConcistencia.Name = "cbxConcistencia";
-            this.cbxConcistencia.Size = new System.Drawing.Size(85, 26);
+            this.cbxConcistencia.Size = new System.Drawing.Size(85, 30);
             this.cbxConcistencia.TabIndex = 4;
             // 
             // cbxToleranciaS
             // 
             this.cbxToleranciaS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxToleranciaS.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxToleranciaS.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxToleranciaS.FormattingEnabled = true;
             this.cbxToleranciaS.Items.AddRange(new object[] {
             "0.01",
@@ -243,111 +242,97 @@
             "0.97",
             "0.98",
             "0.99"});
-            this.cbxToleranciaS.Location = new System.Drawing.Point(668, 104);
+            this.cbxToleranciaS.Location = new System.Drawing.Point(713, 113);
             this.cbxToleranciaS.Name = "cbxToleranciaS";
-            this.cbxToleranciaS.Size = new System.Drawing.Size(85, 26);
+            this.cbxToleranciaS.Size = new System.Drawing.Size(85, 30);
             this.cbxToleranciaS.TabIndex = 5;
             // 
             // txtTotal
             // 
-            this.txtTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(502, 104);
+            this.txtTotal.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(557, 113);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 26);
+            this.txtTotal.Size = new System.Drawing.Size(100, 29);
             this.txtTotal.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 83);
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 18);
+            this.label2.Size = new System.Drawing.Size(86, 22);
             this.label2.TabIndex = 7;
             this.label2.Text = "Destreza";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(145, 83);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(170, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 18);
+            this.label3.Size = new System.Drawing.Size(86, 22);
             this.label3.TabIndex = 8;
             this.label3.Text = "Esfuerzo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(254, 83);
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(275, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 18);
+            this.label4.Size = new System.Drawing.Size(116, 22);
             this.label4.TabIndex = 9;
             this.label4.Text = "Condiciones";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(367, 83);
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(405, 92);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 18);
+            this.label5.Size = new System.Drawing.Size(119, 22);
             this.label5.TabIndex = 10;
             this.label5.Text = "Concistencia";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(529, 83);
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(584, 92);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 18);
+            this.label6.Size = new System.Drawing.Size(50, 22);
             this.label6.TabIndex = 11;
             this.label6.Text = "Total";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(631, 83);
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(686, 66);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 18);
+            this.label7.Size = new System.Drawing.Size(112, 44);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Tolerancia Suplemento";
+            this.label7.Text = "Tolerancia\r\nSuplemento";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
-            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(815, 37);
+            this.panel1.Size = new System.Drawing.Size(875, 37);
             this.panel1.TabIndex = 14;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(764, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(50, 37);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(39)))), ((int)(((byte)(44)))));
             this.btnAceptar.FlatAppearance.BorderSize = 0;
-            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(257, 215);
+            this.btnAceptar.Location = new System.Drawing.Point(285, 245);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(122, 54);
             this.btnAceptar.TabIndex = 15;
@@ -361,9 +346,9 @@
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(24)))), ((int)(((byte)(48)))));
             this.btnCancelar.FlatAppearance.BorderSize = 3;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(422, 215);
+            this.btnCancelar.Location = new System.Drawing.Point(450, 245);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(122, 54);
             this.btnCancelar.TabIndex = 16;
@@ -380,7 +365,7 @@
             this.btnTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
             this.btnTotal.Image = global::gt2_ELAB.Properties.Resources.icons8_sincronizar_32;
-            this.btnTotal.Location = new System.Drawing.Point(516, 136);
+            this.btnTotal.Location = new System.Drawing.Point(571, 148);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(70, 50);
             this.btnTotal.TabIndex = 13;
@@ -391,7 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 281);
+            this.ClientSize = new System.Drawing.Size(872, 310);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
@@ -408,13 +393,13 @@
             this.Controls.Add(this.cbxCondiciones);
             this.Controls.Add(this.cbxEsfuerzo);
             this.Controls.Add(this.cbxDestreza);
-            this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEvaluacionResult";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEvaluacionResult";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,6 +424,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnCerrar;
     }
 }

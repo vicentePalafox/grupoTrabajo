@@ -93,13 +93,6 @@ namespace gt2_ELAB.Vista
                 {
                     new Funciones.SQL_Analista().GuardaConfigAnalisis(noAnalista, noEstacion, tObs.ToString(), tNor.ToString(), tEst.ToString(), fechaIni, idPrac, destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString(), ciclo);
                     new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec, noAnalista, noEstacion);
-
-                    //frmAnalisis analisis = Owner as frmAnalisis;
-                    //analisis.timerActualiza.Enabled = true;
-                    //analisis.stopwatch.Start();
-                    //this.Owner = analisis as Owner;
-                    //Invoke(new Action(() => analisis.timerActualiza.Enabled = true));
-                    //Invoke(new Action(() => analisis.stopwatch.Start()));
                 }
                 else
                     new Funciones.SQL_Analista().ActualizaConfigAnalisis(idConfig, tObs.ToString(), tNor.ToString(), tEst.ToString(), destreza.ToString(), esfuerzo.ToString(), condicion.ToString(), concistencia.ToString(), tolerancia.ToString());
@@ -114,9 +107,21 @@ namespace gt2_ELAB.Vista
                 MessageBox.Show("Llena todos los campos", "ERROR"); 
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e) => Close();
-
-        private void btnCancelar_Click(object sender, EventArgs e) => Close();
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (insert)
+            {
+                DialogResult result = MessageBox.Show("¿Desea cancelar la evaluación?,se perderan todos tus datos", "Grupo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    new Funciones.SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSec, noAnalista, noEstacion);
+                    Close();
+                }
+            }
+            else
+                Close();
+        }
+        
 
         public decimal sumarTiempoObs(DataTable table, int ciclo)
         {
