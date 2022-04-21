@@ -177,7 +177,7 @@ namespace gt2_ELAB
             {
                 int iniciaT = 0;
                 TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)stopwatch.ElapsedMilliseconds);
-                TimeSpan tsInverso = new TimeSpan(0, 0, 1, 0);
+                TimeSpan tsInverso = new TimeSpan(0, 0, 5, 0);
                 TimeSpan result = tsInverso.Subtract(ts);
 
                 lblMin.Text = result.Minutes.ToString().Length < 2 ? $"0{result.Minutes.ToString()}" : result.Minutes.ToString();
