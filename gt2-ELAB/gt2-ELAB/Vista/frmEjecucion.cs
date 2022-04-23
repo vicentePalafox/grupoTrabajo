@@ -184,7 +184,7 @@ namespace gt2_ELAB
                 lblseg.Text = result.Seconds.ToString().Length < 2 ? $"0{result.Seconds.ToString()}" : result.Seconds.ToString();
 
                 iniciaT = new SQL_Secuencia().buscaIniciaTAnalista1(idSecuencia);
-
+                  
                 if (lblMin.Text.Equals("00") && lblseg.Text.Equals("00") || iniciaT == 1)
                 {
                     if (numeroAnalista == 1 && numero_estacion == 1)
