@@ -471,6 +471,8 @@ namespace gt2_ELAB
             tmrRegresivo.Stop();
             tmrPzCola.Stop();
             backgroundWorker1.CancelAsync();
+
+            new SQL_Analista().EliminaAnalista_Ejecucion(Entidad.Usuario.UsuarioName, idSecuencia, numeroAnalista, numero_estacion);
         }
     }
 }
